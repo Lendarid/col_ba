@@ -25,8 +25,9 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url('https://lions-evry.myassoc.org/img/Lions_E2uYP6mbNv79/1454_6d6daff2f/medias/large-f18c98d27a1f7081b36589b4a8e299e6.gif');
-    min-height: 70%;
+    background-image: url('http://1.bp.blogspot.com/-R_XYQOl4vjo/VIA5Z52965I/AAAAAAAAF8Y/78253JYa6ik/s1600/Banque-alimentaire.png');
+    min-height: 100%;
+    background-size :45%;
 }
 
 /* Second image (Portfolio) */
@@ -75,9 +76,6 @@ body, html {
 
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Banque alimentaire <span class="w3-hide-small">de</span> Nancy</span>
-  </div>
 </div>
 
 <!-- Container (About Section) -->
