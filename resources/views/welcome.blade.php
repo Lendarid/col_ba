@@ -61,15 +61,15 @@ body, html {
       <i class="fa fa-bars"></i>
     </a>
     <a href="#home" class="w3-bar-item w3-button">Accueil</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Collecte</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> Info</a>
+    <a href="#collecte" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Collecte</a>
+    <a href="#info" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> Info</a>
     <a href="http://localhost/login" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">Login</a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">Collecte</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">Info</a>
+    <a href="#collecte" class="w3-bar-item w3-button" onclick="toggleFunction()">Collecte</a>
+    <a href="#info" class="w3-bar-item w3-button" onclick="toggleFunction()">Info</a>
     <a href="#" class="w3-bar-item w3-button">SEARCH</a>
   </div>
 </div>
@@ -79,7 +79,7 @@ body, html {
 </div>
 
 <!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
+<div class="w3-content w3-container w3-padding-64" id="collecte">
   <h3 class="w3-center">Collecte</h3>
   <p class="w3-center"><em>Printemps 2018</em></p>
 
@@ -108,12 +108,12 @@ body, html {
 <!-- Third Parallax Image with Portfolio Text -->
 <div class="bgimg-3 w3-display-container w3-opacity-min">
   <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+     <span class="w3-xxlarge w3-text-white w3-wide">Info</span>
   </div>
 </div>
 
 <!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
+<div class="w3-content w3-container w3-padding-64" id="info">
   <h3 class="w3-center">Où sommes nous !</h3>
 
   <div class="w3-row w3-padding-32 w3-section">

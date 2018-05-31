@@ -11,12 +11,19 @@
 |
 */
 
-Route::get('/home', function () {
+Route::get('/index', function () {
     return view('welcome');
 });
 Route::get('/login',function(){
     return view('login');
 });
-Route::get('/postlogin',function(){
-    return view('post_login');
+
+Auth::routes();
+Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
+{
+  Route::resource ('posts','PostsController');
+
 });
+
+
+Route::get('/home', 'HomeController@index')->name('home');
