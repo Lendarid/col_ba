@@ -11,18 +11,14 @@
 |
 */
 
-Route::get('/index', function () {
-    return view('welcome');
-});
-Route::get('/home', function () {
-    return view('welcome');
-});
+
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/login',function(){
     return view('login');
 });
+
 
 Auth::routes();
 Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
@@ -32,4 +28,4 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('login');
