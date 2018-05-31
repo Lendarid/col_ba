@@ -1,3 +1,8 @@
+@if (Route::has('login')) <!-- Bouton Login / Logout -->
+    <div class="top-right links">
+        @if (Auth::check())
+
+
 <!DOCTYPE html>
 <html>
 <title>BA Nancy</title>
@@ -199,3 +204,8 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
 </body>
 </html>
+@else
+     Vous n'êtes pas connecté ! 
+@endif
+</div>
+@endif
