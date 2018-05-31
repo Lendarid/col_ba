@@ -12,7 +12,7 @@ class PostsController extends Controller
 
     $post = Post::findOrFail($id);
     $post->update($request->all());
-    return redirect(route('home',$id))->with('info','L\jul');
+    return redirect(route('home',$id))->with('info','');
 
   }
 
