@@ -15,11 +15,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login',function(){
-    return view('login');
+Route::get('/connect',function(){
+    return view('connect');
 });
-
-
+Route::get('/home',function(){
+    return view('connect');
+});
+Route::get('/login',function(){
+    return view('/auth/login');
+});
+Route::get('/register',function(){
+    return view('/auth/register');
+});
+Route::get('/logout', function () {
+    return view('welcome');
+});
 Auth::routes();
 Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
 {

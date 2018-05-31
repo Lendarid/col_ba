@@ -63,7 +63,15 @@ body, html {
     <a href="#home" class="w3-bar-item w3-button">Accueil</a>
     <a href="#collecte" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Collecte</a>
     <a href="#info" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> Info</a>
-      <a href="http://localhost/login" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">Se connecter</a>
+    <a class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red" href="{{ route('logout') }}"
+       onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+        {{ __('Déconnexion') }}
+    </a>
+
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+  </form>
   </div>
 
   <!-- Navbar on small screens -->
