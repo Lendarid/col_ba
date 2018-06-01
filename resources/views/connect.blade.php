@@ -2,7 +2,6 @@
     <div class="top-right links">
         @if (Auth::check())
 
-
 <!DOCTYPE html>
 <html>
 <title>BA Nancy</title>
