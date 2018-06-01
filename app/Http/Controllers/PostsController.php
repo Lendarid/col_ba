@@ -8,10 +8,4 @@ use Illuminate\Support\facades\auth;
 class PostsController extends Controller
 {
 
-
-
-
-
-
-
 }
