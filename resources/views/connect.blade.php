@@ -93,7 +93,8 @@ body, html {
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
-  <h3 class="w3-center">Bienvenue ! </h3>
+  <?php $user = Auth::user();?>
+  <h3 class="w3-center">Bienvenue <?php echo "$user->name";?> !</h3>
   <p class="w3-center"><em>Printemps 2018</em></p>
 
   <div class="w3-row">
