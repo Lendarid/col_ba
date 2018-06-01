@@ -1,4 +1,3 @@
-@extends('layouts.style')
 @if (Route::has('login')) <!-- Bouton Login / Logout -->
     <div class="top-right links">
         @if (Auth::check())
@@ -6,7 +5,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>BA Nancy</title>
+<title>Gestion des utilisateurs</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -17,7 +16,7 @@
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <a href="/" class="w3-bar-item w3-button">Accueil</a>
+    <a href="/connect" class="w3-bar-item w3-button">Accueil</a>
     <a href="/utilisateurs" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Utilisateurs</a>
     <?php $user = Auth::user();?>
     <a href="#info" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-green"><i class=""></i> <?php echo "$user->name";?></a>
@@ -34,7 +33,6 @@
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#collecte" class="w3-bar-item w3-button" onclick="toggleFunction()">Collecte</a>
 
   </div>
 </div>
@@ -58,7 +56,7 @@
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="/connect" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Haut de page</a>
+  <a href="/utilisateurs" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Haut de page</a>
   </footer>
 
 <!-- Add Google Maps -->

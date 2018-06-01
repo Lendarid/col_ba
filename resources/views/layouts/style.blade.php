@@ -105,6 +105,7 @@ span.psw {
     padding-top: 16px;
 }
 
+
 /* Change styles for span and cancel button on extra small screens */
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
