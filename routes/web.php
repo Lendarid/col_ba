@@ -11,7 +11,9 @@
 |
 */
 
-
+Route::get('/utilisateurs',function(){
+    return view('utilisateurs');
+});
 Route::get('/', function () {
     return view('welcome');
 });
@@ -37,7 +39,3 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
 
 
 Route::get('/home', 'HomeController@index')->name('login');
-
-Route::get('/utilisateurs',function(){
-    return view('utilisateurs');
-});
