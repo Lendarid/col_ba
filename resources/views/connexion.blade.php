@@ -6,29 +6,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
 
-@extends('layouts.navbar')
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="/" class="w3-bar-item w3-button">Accueil</a>
+
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="/" class="w3-bar-item w3-button">Accueil</a>
+
+  </div>
+</div>
+
+<?php
+
+?>
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
-  <div class="imgcontainer">
-    <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
-  </div><br>
 
-  <?php $user = Auth::user();?>
-  <h3 class="w3-center">Bienvenue <?php echo "$user->pseudo";?> !</h3>
-  <p class="w3-center"><em>Printemps 2018</em></p>
-
+  <form action="/connexion" method="post">
+    {{csrf_field() }}
+    <div class="imgcontainer">
+      <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+    </div><br>
   <div class="w3-row">
-      <p><center>Début de la collecte : 2018-04-27 -- Fin de la collecte : 2018-04-28 </center></p>
-      <br><br><br><br><br><br><br><br><br><br>
+    <div class="container">
+      <label for="uname"><b>Utilisateur :</b></label>
+      <input type="text" placeholder="Nom d'Utilisateur" name="pseudo" required>
+
+      <p><label for="psw"><b>Mot de passe :</b></label>
+      <input type="password" placeholder="Mot de Passe" name="password" required>
+      <?php if ($errors->has('password')): ?>
+         <center><p> {{ $errors->first('password')}} </p></center>
+      <?php endif; ?></p>
+
+      <button type="submit">Se connecter</button>
+
     </div>
+    </div>
+  </form>
 </div>
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="/connect" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Haut de page</a>
-  </footer>
 
 <!-- Add Google Maps -->
 <script>

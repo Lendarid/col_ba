@@ -11,25 +11,14 @@
 |
 */
 
-Route::get('/utilisateurs',function(){
-    return view('utilisateurs');
-});
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/connect',function(){
-    return view('connect');
-});
+Route::view('/','welcome');
+
+Route::get('/connect','CompteController@accueil');
+
 Route::get('/home',function(){
     return view('home');
 });
 
-Route::get('/register',function(){
-    return view('/auth/register');
-});
-Route::get('/logout', function () {
-    return view('welcome');
-});
 Auth::routes();
 Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
 {
@@ -37,5 +26,14 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
 
 });
 
-
 Route::get('/home', 'HomeController@index')->name('login');
+
+Route::get('/inscription', 'InscriptionController@formulaire');
+Route::post('/inscription', 'InscriptionController@traitement');
+
+Route::get('/utilisateurs', 'UtilisateursController@Liste');
+
+Route::get('/connexion','ConnexionController@formulaire');
+Route::post('/connexion', 'ConnexionController@traitement');
+
+Route::get('/deconnexion','CompteController@deconnexion');

@@ -14,47 +14,40 @@
     <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
   </div><br>
 
-  <?php $user = Auth::user();?>
-  <h3 class="w3-center">Bienvenue <?php echo "$user->pseudo";?> !</h3>
-  <p class="w3-center"><em>Printemps 2018</em></p>
-
+  <form action="/inscription" method="post">
+    {{csrf_field() }}
   <div class="w3-row">
-      <p><center>Début de la collecte : 2018-04-27 -- Fin de la collecte : 2018-04-28 </center></p>
-      <br><br><br><br><br><br><br><br><br><br>
+    <div class="container">
+      <label for="uname"><b>Utilisateur :</b></label>
+      <input type="text" placeholder="Nom d'Utilisateur" name="pseudo" required>
+
+      <label for="uname"><b>Email :</b></label>
+      <input type="text" placeholder="Email" name="email" required>
+
+      <label for="uname"><b>Niveau :</b></label>
+      <input type="text" placeholder="Niveau" name="niveau" required>
+
+      <label for="psw"><b>Mot de passe :</b></label>
+      <input type="password" placeholder="Mot de Passe" name="password" required>
+      <?php if ($errors->has('password')): ?>
+         <center><p> {{ $errors->first('password')}} </p></center>
+      <?php endif; ?>
+
+      <label for="psw"><b>Mot de passe (confirmation) :</b></label>
+      <input type="password" placeholder="Mot de Passe" name="password_confirmation" required>
+      <?php if ($errors->has('password_confirmation')): ?>
+          {{ $errors->first('password_confirmation')}}
+      <?php endif; ?>
+
+      <button type="submit">S'inscrire</button>
+
     </div>
+    </div>
+  </form>
 </div>
 
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="/connect" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Haut de page</a>
-  </footer>
-
-<!-- Add Google Maps -->
 <script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(48.657087, 6.190892);
-  var mapOptions= {
-    center:myCenter,
-    zoom:15.6, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
 
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
 
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};

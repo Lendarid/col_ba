@@ -10,54 +10,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
-    <a href="/connect" class="w3-bar-item w3-button">Accueil</a>
-    <a href="/utilisateurs" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Utilisateurs</a>
-    <?php $user = Auth::user();?>
-    <a href="#info" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-green"><i class=""></i> <?php echo "$user->name";?></a>
-    <a class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red" href="{{ route('logout') }}"
-       onclick="event.preventDefault();
-                     document.getElementById('logout-form').submit();">
-        {{ __('Déconnexion') }}
-    </a>
-
-  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-      @csrf
-  </form>
-  </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-
-  </div>
-</div>
-
-<?php
-
-?>
+@extends('layouts.navbar')
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
-  <?php $user = Auth::user();?>
-  <h3 class="w3-center">Bienvenue <?php echo "$user->name";?> !</h3>
-  <p class="w3-center"><em>EN COURS DE CONSTRUCTION</em></p>
+  <h3 class="w3-center">
+    <div class="imgcontainer">
+      <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+    </div><br>
 
   <div class="w3-row">
-      <p><center> !WARNING!  EN COURS DE CONSTRUCTION  !WARNING!</center></p>
-      <br><br><br><br><br><br><br><br><br><br>
+
+    <table id="customers">
+    <tr>
+    <th>ID</th>
+    <th>Pseudo</th>
+    <th>Email</th>
+    <th>Niveau</th>
+    </tr>
+    <?php foreach ($utilisateurs as $utilisateur): ?>
+    <tr>
+    <td>
+
+        {{ $utilisateur->id }}
+    </td>
+    <td>
+        {{ $utilisateur->pseudo }}
+    </td>
+    <td>
+        {{ $utilisateur->email }}
+    </td>
+    <td>
+        {{ $utilisateur->niveau }}
+    </td>
+    </tr>
+    <?php endforeach; ?>
+
+</table>
+    <p><a href="/inscription" class="button button3">Ajouter un utilisateur</a></p>
     </div>
 </div>
+<br><br><br><br><br><br><br><br><br>
 
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="/utilisateurs" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Haut de page</a>
-  </footer>
 
 <!-- Add Google Maps -->
 <script>
