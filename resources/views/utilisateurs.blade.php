@@ -44,7 +44,7 @@
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
   <?php $user = Auth::user();?>
-  <h3 class="w3-center">Bienvenue Utilisateur <?php echo "$user->name";?> !</h3>
+  <h3 class="w3-center">Bienvenue <?php echo "$user->name";?> !</h3>
   <p class="w3-center"><em>EN COURS DE CONSTRUCTION</em></p>
 
   <div class="w3-row">
