@@ -17,6 +17,13 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
 }
+select {
+    width: 40%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
 
 #customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -78,7 +85,7 @@ input[type=text], input[type=password] {
     padding: 12px 20px;
     margin: 8px 30% 2px 30%;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid orange;
     box-sizing: border-box;
 }
 

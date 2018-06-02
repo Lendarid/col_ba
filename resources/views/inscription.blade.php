@@ -12,7 +12,9 @@
 <div class="w3-content w3-container w3-padding-64" id="collecte">
   <div class="imgcontainer">
     <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
-  </div><br>
+  </div><br><br>
+
+  <p><center><h6> Pour ajouter ajouter un utilisateur, veuillez remplir tous les champs ce-dessous et valider </h6></center></p>
 
   <form action="/inscription" method="post">
     {{csrf_field() }}
@@ -25,7 +27,13 @@
       <input type="text" placeholder="Email" name="email" required>
 
       <label for="uname"><b>Niveau :</b></label>
-      <input type="text" placeholder="Niveau" name="niveau" required>
+
+
+      <center><p><select name="niveau" required>
+        <option value="1">Administrateur</option>
+        <option value="2">Consultant</option>
+        <option value="3">3</option>
+      </select></p></center>
 
       <label for="psw"><b>Mot de passe :</b></label>
       <input type="password" placeholder="Mot de Passe" name="password" required>
@@ -39,7 +47,7 @@
           {{ $errors->first('password_confirmation')}}
       <?php endif; ?>
 
-      <button type="submit">S'inscrire</button>
+      <p><center><button class="button button3" type="submit">Ajouter l'utilisateur</button></center></p>
 
     </div>
     </div>

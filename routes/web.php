@@ -37,3 +37,7 @@ Route::get('/connexion','ConnexionController@formulaire');
 Route::post('/connexion', 'ConnexionController@traitement');
 
 Route::get('/deconnexion','CompteController@deconnexion');
+
+Route::post('/modification','CompteController@modification');
+
+Route::get('/{pseudo}','UtilisateursController@Voir');

@@ -28,7 +28,7 @@ class InscriptionController extends Controller
         'mot_de_passe' => bcrypt(request('password')),
       ]);
 
-      return 'Formulaire reçu';
+      return redirect('/utilisateurs');
 
 
     }

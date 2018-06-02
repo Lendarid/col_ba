@@ -28,7 +28,6 @@
     <th>Email</th>
     <th>Niveau</th>
     </tr>
-    <?php foreach ($utilisateurs as $utilisateur): ?>
     <tr>
     <td>
         {{ $utilisateur->id }}
@@ -42,17 +41,12 @@
     <td>
         {{ $utilisateur->niveau }}
     </td>
-    <td>
-      <p><a href="/{{$utilisateur->pseudo}}" class="button button3">Voir le profil</a></p>
-    </td>
     </tr>
-    <?php endforeach; ?>
-
-</table>
-    <p><a href="/inscription" class="button button3">Ajouter un utilisateur</a></p>
-    </div>
+    </table>
+  </div>
 </div>
-<br><br><br><br><br><br><br><br><br>
+
+      
 
 
 <!-- Add Google Maps -->

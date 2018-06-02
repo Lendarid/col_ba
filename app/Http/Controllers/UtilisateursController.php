@@ -14,7 +14,17 @@ class UtilisateursController extends Controller
 
         'utilisateurs' => $utilisateurs,
       ]);
+    }
+    public function voir()
+    {
+        $pseudo = request('pseudo');
 
+        $utilisateur = Utilisateur::where('pseudo', $pseudo)->first();
 
+        return view('compte', [
+            'utilisateur' => $utilisateur,
+        ]);
+
+        return $pseudo;
     }
 }
