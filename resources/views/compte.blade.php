@@ -46,8 +46,8 @@
   </div>
 </div>
 
-      
-
+<center><a href="/utilisateurs" class="button button3">Retour</a>
+<a href="/utilisateurs/delete/{{$utilisateur->pseudo}}" class="button button3">Supprimer</a></center>
 
 <!-- Add Google Maps -->
 <script>

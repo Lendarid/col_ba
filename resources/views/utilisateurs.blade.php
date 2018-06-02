@@ -43,7 +43,7 @@
         {{ $utilisateur->niveau }}
     </td>
     <td>
-      <p><a href="/{{$utilisateur->pseudo}}" class="button button3">Voir le profil</a></p>
+      <p><a href="/utilisateurs/{{$utilisateur->pseudo}}" class="button button3">Voir le profil</a></p>
     </td>
     </tr>
     <?php endforeach; ?>

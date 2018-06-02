@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\utilisateur;
+use DB;
 
 class UtilisateursController extends Controller
 {
@@ -26,5 +27,12 @@ class UtilisateursController extends Controller
         ]);
 
         return $pseudo;
+    }
+
+    public function delete($pseudo)
+    {
+        DB::table('utilisateurs')->where('pseudo',$pseudo)->delete();
+
+        return redirect('/utilisateurs');
     }
 }

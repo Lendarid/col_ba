@@ -40,4 +40,5 @@ Route::get('/deconnexion','CompteController@deconnexion');
 
 Route::post('/modification','CompteController@modification');
 
-Route::get('/{pseudo}','UtilisateursController@Voir');
+Route::get('/utilisateurs/{pseudo}','UtilisateursController@Voir');
+Route::get('/utilisateurs/delete/{pseudo}','UtilisateursController@Delete');
