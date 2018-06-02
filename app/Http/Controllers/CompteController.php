@@ -10,9 +10,9 @@ class CompteController extends Controller
     {
         if(Auth()->guest())
         {
-            return redirect('/connexion')->withErrors([
-                'password' => 'Vous devez être connecté pour voir cette page',
-            ]);
+            flash('Vous devez être connecté pour voir cette page')->error();
+
+            return redirect('/connexion');
         }
 
         return view('connect');
@@ -23,5 +23,5 @@ class CompteController extends Controller
       auth()->logout();
       return redirect('/');
     }
-  
+
 }

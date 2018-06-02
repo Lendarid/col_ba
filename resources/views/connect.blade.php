@@ -14,6 +14,8 @@
     <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
   </div><br>
 
+    <center>  @include('flash::message') </center>
+
   <?php $user = Auth::user();?>
   <h3 class="w3-center">Bienvenue <?php echo "$user->pseudo";?> !</h3>
   <p class="w3-center"><em>Printemps 2018</em></p>

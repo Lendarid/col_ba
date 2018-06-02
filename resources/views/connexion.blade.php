@@ -23,10 +23,6 @@
   </div>
 </div>
 
-<?php
-
-?>
-
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
 
@@ -35,6 +31,9 @@
     <div class="imgcontainer">
       <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
     </div><br>
+
+    <center> @include('flash::message') </center>
+
   <div class="w3-row">
     <div class="container">
       <label for="uname"><b>Utilisateur :</b></label>

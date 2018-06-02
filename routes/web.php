@@ -28,17 +28,19 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
 
 Route::get('/home', 'HomeController@index')->name('login');
 
+// Partie d'inscription
 Route::get('/inscription', 'InscriptionController@formulaire');
 Route::post('/inscription', 'InscriptionController@traitement');
 
+// Partie utilisateurs
 Route::get('/utilisateurs', 'UtilisateursController@Liste');
+
 
 Route::get('/connexion','ConnexionController@formulaire');
 Route::post('/connexion', 'ConnexionController@traitement');
 
 Route::get('/deconnexion','CompteController@deconnexion');
 
-Route::post('/modification','CompteController@modification');
-
 Route::get('/utilisateurs/{pseudo}','UtilisateursController@Voir');
+
 Route::get('/utilisateurs/delete/{pseudo}','UtilisateursController@Delete');

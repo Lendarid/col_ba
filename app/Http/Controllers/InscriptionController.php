@@ -8,10 +8,22 @@ class InscriptionController extends Controller
 {
     public function formulaire()
     {
-        return view('inscription');
+      if(Auth()->guest())
+      {
+          flash('Vous devez être connecté pour voir cette page')->error();
+
+          return redirect('/connexion');
+      }
+      return view('inscription');
     }
     public function traitement()
     {
+      if(Auth()->guest())
+      {
+          flash('Vous devez être connecté pour voir cette page')->error();
+
+          return redirect('/connexion');
+      }
       request()->validate([
           'pseudo' => ['required'],
           'email' => ['required','email'],

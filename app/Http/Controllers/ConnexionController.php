@@ -8,7 +8,13 @@ class ConnexionController extends Controller
 {
     public function formulaire()
     {
-        return view('connexion');
+      if(Auth()->check())
+      {
+          flash('Vous êtes déjà connecté')->error();
+
+          return redirect('/connect');
+      }
+      return view('connexion');
     }
     public function traitement()
     {
