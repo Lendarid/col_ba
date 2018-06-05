@@ -16,12 +16,18 @@
 
   <p><center><h6> Pour ajouter une collecte, veuillez remplir tous les champs ce-dessous et valider </h6></center></p>
 
-  <form action="/inscription" method="post">
+  <form action="/ajoutcollecte" method="post">
     {{csrf_field() }}
   <div class="w3-row">
     <div class="container">
       <label for="uname"><b>Nom :</b></label>
       <input type="text" placeholder="Nom de la collecte" name="nom" required>
+
+      <label for="uname"><b>Date de début :</b></label>
+      <input type="date" placeholder="Date de début" name="datedebut" required>
+
+      <label for="uname"><b>Date de fin :</b></label>
+      <input type="date" placeholder="Date de fin" name="datefin" required>
 
       <label for="uname"><b>Poids palette :</b></label>
       <input type="text" placeholder="Poids d'une palette" name="poidspal" required>

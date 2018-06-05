@@ -133,7 +133,7 @@ b{
 
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=date], input[type=password] {
     width:40%;
     padding: 12px 20px;
     margin: 8px 30% 2px 30%;
