@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollecte extends Migration
+class CreateCollectes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCollecte extends Migration
      */
     public function up()
     {
-        Schema::create('Collecte', function (Blueprint $table) {
+        Schema::create('Collectes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Nom');
             $table->date('DateDebut');
@@ -31,6 +31,6 @@ class CreateCollecte extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Collecte');
+        Schema::dropIfExists('Collectes');
     }
 }
