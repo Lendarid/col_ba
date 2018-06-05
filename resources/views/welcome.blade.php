@@ -51,21 +51,14 @@
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
-  <h3 class="w3-center">Collecte</h3>
-  <p class="w3-center"><em>Printemps 2018</em></p>
-
   <div class="w3-row">
-      <p><center>Début de la collecte : 2018-04-27 -- Fin de la collecte : 2018-04-28 </center></p>
-    </div>
-</div>
-    <!-- Hide this text on small devices -->
-
-
-
-<!-- Second Parallax Image with Portfolio Text -->
-
-
-<!-- Container (Portfolio Section) -->
+    <?php foreach ($collectes as $collecte): ?>
+      <h3 class="w3-center">Collecte</h3>
+      <p class="w3-center"><em>{{ $collecte->Nom }}</em></p>
+      <div class="w3-row">
+      <p><center>Début de la collecte : {{ $collecte->DateDebut }} -- Fin de la collecte : {{ $collecte->DateFin }} </center></p>
+      </div> </div>
+    <?php endforeach; ?>
 
 <!-- Modal for full size images on click-->
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">

@@ -1,7 +1,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>BA Nancy</title>
+<title>Gestion des collectes</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -14,40 +14,22 @@
     <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
   </div><br><br>
 
-  <p><center><h6> Pour ajouter un utilisateur, veuillez remplir tous les champs ce-dessous et valider </h6></center></p>
+  <p><center><h6> Pour ajouter une collecte, veuillez remplir tous les champs ce-dessous et valider </h6></center></p>
 
   <form action="/inscription" method="post">
     {{csrf_field() }}
   <div class="w3-row">
     <div class="container">
-      <label for="uname"><b>Utilisateur :</b></label>
-      <input type="text" placeholder="Nom d'Utilisateur" name="pseudo" required>
+      <label for="uname"><b>Nom :</b></label>
+      <input type="text" placeholder="Nom de la collecte" name="nom" required>
 
-      <label for="uname"><b>Email :</b></label>
-      <input type="text" placeholder="Email" name="email" required>
+      <label for="uname"><b>Poids palette :</b></label>
+      <input type="text" placeholder="Poids d'une palette" name="poidspal" required>
 
-      <label for="uname"><b>Niveau :</b></label>
+      <label for="uname"><b>Poids grille :</b></label>
+      <input type="text" placeholder="Poids d'une grille" name="poidsgrille" required>
 
-
-      <center><p><select name="niveau" required>
-        <option value="1">Administrateur</option>
-        <option value="2">Consultant</option>
-        <option value="3">3</option>
-      </select></p></center>
-
-      <label for="psw"><b>Mot de passe :</b></label>
-      <input type="password" placeholder="Mot de Passe" name="password" required>
-      <?php if ($errors->has('password')): ?>
-         <center><p> {{ $errors->first('password')}} </p></center>
-      <?php endif; ?>
-
-      <label for="psw"><b>Mot de passe (confirmation) :</b></label>
-      <input type="password" placeholder="Mot de Passe" name="password_confirmation" required>
-      <?php if ($errors->has('password_confirmation')): ?>
-          {{ $errors->first('password_confirmation')}}
-      <?php endif; ?>
-
-      <p><center><button class="button button3" type="submit">Ajouter l'utilisateur</button></center></p>
+      <p><center><button class="button button3" type="submit">Ajouter la collecte</button></center></p>
 
     </div>
     </div>

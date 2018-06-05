@@ -12,6 +12,7 @@
 */
 
 Route::view('/','welcome');
+Route::get('/', 'CollectesController@accueil');
 
 Route::get('/connect','CompteController@accueil');
 
@@ -32,6 +33,9 @@ Route::get('/home', 'HomeController@index')->name('login');
 Route::get('/inscription', 'InscriptionController@formulaire');
 Route::post('/inscription', 'InscriptionController@traitement');
 
+Route::get('/ajoutcollecte', 'AjoutCollecteController@formulaire');
+Route::post('/ajoutcollecte', 'AjoutCollecteController@traitement');
+
 // Partie utilisateurs
 Route::get('/utilisateurs', 'UtilisateursController@Liste');
 
@@ -41,6 +45,10 @@ Route::post('/connexion', 'ConnexionController@traitement');
 
 Route::get('/deconnexion','CompteController@deconnexion');
 
-Route::get('/utilisateurs/{pseudo}','UtilisateursController@Voir');
+Route::get('/collectes', 'CollectesController@liste');
 
+Route::get('/collectes/{nom}','CollectesController@Voir');
+Route::get('/collectes/delete/{nom}','CollectesController@Delete');
+
+Route::get('/utilisateurs/{pseudo}','UtilisateursController@Voir');
 Route::get('/utilisateurs/delete/{pseudo}','UtilisateursController@Delete');
