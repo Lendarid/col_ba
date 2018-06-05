@@ -8,7 +8,7 @@ class Collecte extends Model implements Authenticatable
 {
     use BasicAuthenticatable;
 
-    protected $fillable = ['nom','poidspal','poidsgrille'];
+    protected $fillable = ['nom','datedebut','datefin','poidspal','poidsgrille'];
 
     /**
      * Get the password for the user.

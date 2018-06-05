@@ -53,7 +53,7 @@ class CollectesController extends Controller
         return $nom;
     }
 
-    public function delete($pseudo)
+    public function delete($nom)
     {
         if(Auth()->guest())
         {
@@ -62,11 +62,11 @@ class CollectesController extends Controller
           return redirect('/connexion');
         }
 
-        DB::table('utilisateurs')->where('pseudo',$pseudo)->delete();
+        DB::table('collectes')->where('nom',$nom)->delete();
 
-        return redirect('/utilisateurs');
+        return redirect('/collectes');
     }
-    public function update($pseudo)
+    public function update($nom)
     {
       if(Auth()->guest())
       {
@@ -75,8 +75,8 @@ class CollectesController extends Controller
           return redirect('/connexion');
       }
 
-      DB::table('utilisateurs')->where('pseudo',$pseudo)->update();
+      DB::table('collectes')->where('nom',$nom)->update();
 
-      return redirect('/utilisateurs');
+      return redirect('/collectes');
     }
 }
