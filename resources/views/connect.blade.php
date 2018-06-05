@@ -18,10 +18,10 @@
 
   <?php $user = Auth::user();?>
   <h3 class="w3-center">Bienvenue <?php echo "$user->pseudo";?> !</h3>
-  <p class="w3-center"><em>Printemps 2018</em></p>
+  <p class="w3-center"><em>~~~~~~</em></p>
 
   <div class="w3-row">
-      <p><center>Début de la collecte : 2018-04-27 -- Fin de la collecte : 2018-04-28 </center></p>
+      <p><center>~~~~~~~~~~~ </center></p>
       <br><br><br><br><br><br><br><br><br><br>
     </div>
 </div>
