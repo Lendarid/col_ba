@@ -217,11 +217,33 @@ span.psw {
 .button2 {
     background-color: white;
     color: black;
-    border: 2px solid #008CBA;
+    border: 2px solid green;
 }
 
 .button2:hover {
-    background-color: #008CBA;
+    background-color: green;
+    color: white;
+}
+
+.buttonvalidate {
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+}
+
+.buttonnovalidate:hover {
+    background-color: red;
+    color: white;
+}
+
+.buttonnovalidate {
+    background-color: white;
+    color: black;
+    border: 2px solid red;
+}
+
+.buttonvalidate:hover {
+    background-color: green;
     color: white;
 }
 

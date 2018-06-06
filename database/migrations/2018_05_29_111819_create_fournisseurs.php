@@ -15,7 +15,7 @@ class CreateFournisseurs extends Migration
     {
         Schema::create('Fournisseurs', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('VIF',8);->unique();
+          $table->string('VIF',8)->unique();
           $table->string('Intitule');
           $table->string('Enseigne');
           $table->string('Ville');

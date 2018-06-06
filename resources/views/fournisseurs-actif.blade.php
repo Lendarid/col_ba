@@ -5,7 +5,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Gestion des fournisseurs</title>
+<title>Gestion des fournisseurs actifs</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -52,7 +52,7 @@
     <td>
     <?php $actif = "$fournisseur->Actif"; ?>
     <?php if ($actif == 0): ?>
-      <p><a href="/fournisseurs-inactif" class="button buttonnovalidate">Inactif</a></p>
+      <p><a href="/fournisseurs-inactif" class="button buttonnovalidate">Innactif</a></p>
     <?php endif; ?>
     <?php if ($actif == 1): ?>
       <p><a href="/fournisseurs-actif" class="button buttonvalidate">Actif</a></p>
@@ -65,7 +65,8 @@
     <?php endforeach; ?>
 
 </table>
-    <p><a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></p>
+    <p><center><a href="/fournisseurs" class="button button3">Retour</a>
+    <a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></center></p>
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br>

@@ -5,7 +5,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Gestion des fournisseurs</title>
+<title>Gestion des fournisseurs inactifs</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -23,43 +23,54 @@
 
     <table id="customers">
     <tr>
-    <th>ID</th>
+    <th></th>
     <th>VIF</th>
-    <th>Initutlé</th>
+    <th>Intitule</th>
     <th>Enseigne</th>
-    <th>Ville</th>
-    <th>Code Postal</th>
-    <th>Actif</th>
+    <th>Activité</th>
     </tr>
+    <?php foreach ($fournisseurs as $fournisseur): ?>
     <tr>
-      <td>
-          {{ $fournisseur->id }}
-      </td>
-      <td>
-          {{ $fournisseur->VIF }}
-      </td>
-      <td>
-          {{ $fournisseur->Intitule }}
-      </td>
-      <td>
-          {{ $fournisseur->Enseigne }}
-      </td>
-      <td>
-          {{ $fournisseur->Ville }}
-      </td>
-      <td>
-          {{ $fournisseur->CodePostal }}
-      </td>
-      <td>
-          {{ $fournisseur->Actif }}
-      </td>
+    <td>
+    <?php $logo = "$fournisseur->Enseigne"; ?>
+    <?php if ($logo == "Cora"): ?>
+      <img src="http://cora-france.fr/typo3conf/ext/cora_frontend/Resources/Public/img/elipse-cora.png" height="75" width="100" alt="Avatar" class="img">
+    <?php endif; ?>
+    <?php if ($logo == "Aldi"): ?>
+      <img src="https://www.aldi.fr/images/logo_nfr.png" height="75" width="75" alt="Avatar" class="img">
+    <?php endif; ?>
+    </td>
+    <td>
+        {{ $fournisseur->VIF }}
+    </td>
+    <td>
+        {{ $fournisseur->Intitule }}
+    </td>
+    <td>
+        {{ $fournisseur->Enseigne }}
+    </td>
+    <td>
+    <?php $actif = "$fournisseur->Actif"; ?>
+    <?php if ($actif == 0): ?>
+      <p><a href="/fournisseurs-inactif" class="button buttonnovalidate">Inactif</a></p>
+    <?php endif; ?>
+    <?php if ($actif == 1): ?>
+      <p><a href="/fournisseurs-actif" class="button buttonvalidate">Actif</a></p>
+    <?php endif; ?>
+    </td>
+    <td>
+      <p><a href="/fournisseurs/{{$fournisseur->VIF}}" class="button button3">En savoir plus</a></p>
+    </td>
     </tr>
-    </table>
-  </div>
-</div>
+    <?php endforeach; ?>
 
-<center><a href="/fournisseurs" class="button button3">Retour</a>
-<a href="/fournisseurs/delete/{{$fournisseur->VIF}}" class="button button3">Supprimer</a></center>
+</table>
+    <p><center><a href="/fournisseurs" class="button button3">Retour</a>
+    <a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></center></p>
+    </div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+
 
 <!-- Add Google Maps -->
 <script>

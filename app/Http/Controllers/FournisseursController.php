@@ -23,6 +23,38 @@ class FournisseursController extends Controller
         'fournisseurs' => $fournisseurs,
       ]);
     }
+    public function listeactif()
+    {
+      if(Auth()->guest())
+      {
+        flash('Vous devez être connecté pour voir cette page')->error();
+
+        return redirect('/connexion');
+      }
+
+      $fournisseurs = Fournisseur::all()->where('Actif', '=', 1);
+
+      return view('fournisseurs-actif', [
+
+        'fournisseurs' => $fournisseurs,
+      ]);
+    }
+    public function listeinactif()
+    {
+      if(Auth()->guest())
+      {
+        flash('Vous devez être connecté pour voir cette page')->error();
+
+        return redirect('/connexion');
+      }
+
+      $fournisseurs = Fournisseur::all()->where('Actif', '=', 0);
+
+      return view('fournisseurs-inactif', [
+
+        'fournisseurs' => $fournisseurs,
+      ]);
+    }
     public function accueil()
     {
 
@@ -46,7 +78,7 @@ class FournisseursController extends Controller
 
         $fournisseur = Fournisseur::where('vif', $vif)->first();
 
-        return view('fournisseur', [
+        return view('profil', [
             'fournisseur' => $fournisseur,
         ]);
 
@@ -75,7 +107,6 @@ class FournisseursController extends Controller
           return redirect('/connexion');
       }
 
-      DB::table('fournisseurs')->where('vif',$vif)->update();
 
       return redirect('/fournisseurs');
     }

@@ -23,53 +23,44 @@
 
     <table id="customers">
     <tr>
-    <th></th>
+    <th>ID</th>
     <th>VIF</th>
-    <th>Intitule</th>
+    <th>Initutlé</th>
     <th>Enseigne</th>
-    <th>Activité</th>
+    <th>Ville</th>
+    <th>Code Postal</th>
+    <th>Actif</th>
     </tr>
-    <?php foreach ($fournisseurs as $fournisseur): ?>
     <tr>
-    <td>
-    <?php $logo = "$fournisseur->Enseigne"; ?>
-    <?php if ($logo == "Cora"): ?>
-      <img src="http://cora-france.fr/typo3conf/ext/cora_frontend/Resources/Public/img/elipse-cora.png" height="75" width="100" alt="Avatar" class="img">
-    <?php endif; ?>
-    <?php if ($logo == "Aldi"): ?>
-      <img src="https://www.aldi.fr/images/logo_nfr.png" height="75" width="75" alt="Avatar" class="img">
-    <?php endif; ?>
-    </td>
-    <td>
-        {{ $fournisseur->VIF }}
-    </td>
-    <td>
-        {{ $fournisseur->Intitule }}
-    </td>
-    <td>
-        {{ $fournisseur->Enseigne }}
-    </td>
-    <td>
-    <?php $actif = "$fournisseur->Actif"; ?>
-    <?php if ($actif == 0): ?>
-      <p><a href="/fournisseurs-inactif" class="button buttonnovalidate">Inactif</a></p>
-    <?php endif; ?>
-    <?php if ($actif == 1): ?>
-      <p><a href="/fournisseurs-actif" class="button buttonvalidate">Actif</a></p>
-    <?php endif; ?>
-    </td>
-    <td>
-      <p><a href="/fournisseurs/{{$fournisseur->VIF}}" class="button button3">En savoir plus</a></p>
-    </td>
+      <td>
+          {{ $fournisseur->id }}
+      </td>
+      <td>
+          {{ $fournisseur->VIF }}
+      </td>
+      <td>
+          {{ $fournisseur->Intitule }}
+      </td>
+      <td>
+          {{ $fournisseur->Enseigne }}
+      </td>
+      <td>
+          {{ $fournisseur->Ville }}
+      </td>
+      <td>
+          {{ $fournisseur->CodePostal }}
+      </td>
+      <td>
+          {{ $fournisseur->Actif }}
+      </td>
     </tr>
-    <?php endforeach; ?>
+    </table>
 
-</table>
-    <p><a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></p>
-    </div>
+  </div>
 </div>
-<br><br><br><br><br><br><br><br><br>
 
+<center><a href="/fournisseurs" class="button button3">Retour</a>
+<a href="/fournisseurs/delete/{{$fournisseur->VIF}}" class="button button3">Supprimer</a></center>
 
 <!-- Add Google Maps -->
 <script>

@@ -45,10 +45,14 @@ Route::post('/connexion', 'ConnexionController@traitement');
 Route::get('/deconnexion','CompteController@deconnexion');
 
 Route::get('/fournisseurs', 'FournisseursController@liste');
+Route::get('/fournisseurs-actif', 'FournisseursController@listeactif');
+Route::get('/fournisseurs-inactif', 'FournisseursController@listeinactif');
+
 Route::get('/utilisateurs', 'UtilisateursController@Liste');
 Route::get('/collectes', 'CollectesController@liste');
 
 Route::get('/fournisseurs/{vif}','FournisseursController@Voir');
+Route::get('/fournisseurs/update/{vif}','FournisseursController@Update');
 Route::get('/fournisseurs/delete/{vif}','FournisseursController@Delete');
 
 Route::get('/collectes/{nom}','CollectesController@Voir');
