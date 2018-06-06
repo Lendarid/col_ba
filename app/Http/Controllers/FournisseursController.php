@@ -78,7 +78,7 @@ class FournisseursController extends Controller
 
         $fournisseur = Fournisseur::where('vif', $vif)->first();
 
-        return view('profil', [
+        return view('fournisseurprofil', [
             'fournisseur' => $fournisseur,
         ]);
 
