@@ -36,16 +36,20 @@ Route::post('/inscription', 'InscriptionController@traitement');
 Route::get('/ajoutcollecte', 'AjoutCollecteController@formulaire');
 Route::post('/ajoutcollecte', 'AjoutCollecteController@traitement');
 
-// Partie utilisateurs
-Route::get('/utilisateurs', 'UtilisateursController@Liste');
-
+Route::get('/ajoutfournisseur', 'AjoutFournisseurController@formulaire');
+Route::post('/ajoutfournisseur', 'AjoutFournisseurController@traitement');
 
 Route::get('/connexion','ConnexionController@formulaire');
 Route::post('/connexion', 'ConnexionController@traitement');
 
 Route::get('/deconnexion','CompteController@deconnexion');
 
+Route::get('/fournisseurs', 'FournisseursController@liste');
+Route::get('/utilisateurs', 'UtilisateursController@Liste');
 Route::get('/collectes', 'CollectesController@liste');
+
+Route::get('/fournisseurs/{vif}','FournisseursController@Voir');
+Route::get('/fournisseurs/delete/{vif}','FournisseursController@Delete');
 
 Route::get('/collectes/{nom}','CollectesController@Voir');
 Route::get('/collectes/delete/{nom}','CollectesController@Delete');

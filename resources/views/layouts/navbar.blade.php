@@ -15,8 +15,8 @@
     </li>
     <a href="/" class="w3-bar-item w3-button">Accueil</a>
     <a href="/utilisateurs" class="w3-bar-item w3-button w3-hide-small"> Utilisateurs</a>
-      <a href="/collectes" class="w3-bar-item w3-button w3-hide-small"> Collectes</a>
-
+    <a href="/collectes" class="w3-bar-item w3-button w3-hide-small"> Collectes</a>
+    <a href="/fournisseurs" class="w3-bar-item w3-button w3-hide-small"> Fournisseurs</a>
 
 
   </div>
