@@ -52,11 +52,19 @@
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
   <div class="w3-row">
+      <h1 class="w3-center">Nos Collectes</h1>
     <?php foreach ($collectes as $collecte): ?>
-      <h3 class="w3-center">Collecte</h3>
-      <p class="w3-center"><em>{{ $collecte->Nom }}</em></p>
+      <h3 class="w3-center"><span style="text-decoration: underline;"><em>{{ $collecte->Nom }}</em><span></h3>
       <div class="w3-row">
-      <p><center>Début de la collecte : {{ $collecte->DateDebut }} -- Fin de la collecte : {{ $collecte->DateFin }} </center></p>
+      <p>
+        <center>
+        Début de la collecte : {{ $collecte->DateDebut }}
+         &emsp;&emsp;&emsp;
+         Fin de la collecte : {{ $collecte->DateFin }}
+
+       </center>
+     </p>
+
       </div> </div>
     <?php endforeach; ?>
 
