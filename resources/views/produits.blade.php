@@ -21,7 +21,7 @@
 
   <div class="w3-row">
 
-    <table id="customers">
+<table id="customers">
     <tr>
     <th>ID</th>
     <th>Fournisseur</th>
@@ -47,8 +47,8 @@
     </td>
     </tr>
     <?php endforeach; ?>
-
 </table>
+
     <p><a href="/ajoutproduit" class="button button3">Ajouter un produit</a></p>
     </div>
 </div>

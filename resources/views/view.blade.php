@@ -42,7 +42,7 @@
       <p><a href="/produits/{{$produit->id}}" class="button button3">En savoir plus</a></p>
     </td>
     </tr>
-    <?php endforeach; ?>
+    
 
 </table>
     </div>
