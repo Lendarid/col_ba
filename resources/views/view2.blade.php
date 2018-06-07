@@ -5,7 +5,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Consultation de collectes</title>
+<title>Consultation de collecte</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -23,32 +23,29 @@
 
     <table id="customers">
     <tr>
-      <th>Fournisseur</th>
-      <th>Poids</th>
-      <th>Creation</th>
+    <th>Fournisseur</th>
+    <th>Poids</th>
+    <th>Creation</th>
     </tr>
-    <?php foreach ($produits as $produit): ?>
     <tr>
-    <td>
-        {{ $produit->ID_Fournisseur }}
-    </td>
-    <td>
-        {{ $produit->Poids }}
-    </td>
-    <td>
-        {{ $produit->Creation }}
-    </td>
-    <td>
-      <p><a href="/produits/{{$produit->id}}" class="button button3">En savoir plus</a></p>
-    </td>
+      <td>
+          {{ $produit->Id_Poids }}
+      </td>
+      <td>
+          {{ $produit->Poids }}
+      </td>
+      <td>
+          {{ $produit->Creation }}
+      </td>
+      <td>
+        <p><a href="/produits/{{$produit->id}}" class="button button3">Voir</a></p>
+      </td>
     </tr>
-    <?php endforeach; ?>
-
-</table>
-    </div>
+    </table>
+  </div>
 </div>
-<br><br><br><br><br><br><br><br><br>
 
+<center><a href="/consultation-collecte" class="button button3">Retour</a>
 
 <!-- Add Google Maps -->
 <script>

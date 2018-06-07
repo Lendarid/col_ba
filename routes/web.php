@@ -56,7 +56,7 @@ Route::get('/collectes', 'CollectesController@liste');
 Route::get('/produits', 'ProduitsController@liste');
 Route::get('/consultation-collecte', 'CollectesController@listeconsultation');
 
-Route::get('/consultation-collecte/{nom}','ProduitsController@Consultation');
+Route::get('/consultation-collecte/{nom}','ProduitsController@ListeConsultation');
 
 
 Route::get('/produits/{id}','ProduitsController@Voir');
