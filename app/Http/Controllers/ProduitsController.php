@@ -24,6 +24,23 @@ class ProduitsController extends Controller
       ]);
     }
 
+    public function listeconsultation($nom)
+    {
+      if(Auth()->guest())
+      {
+        flash('Vous devez être connecté pour voir cette page')->error();
+
+        return redirect('/connexion');
+      }
+
+      $produits = Produit::all()->where('ID_Collecte', '=', $nom);
+
+      return view('produits', [
+
+        'produits' => $produits,
+      ]);
+    }
+
     public function accueil()
     {
 
@@ -88,7 +105,7 @@ class ProduitsController extends Controller
         return redirect('/produits');
     }
 
-    public function update()
+    public function update($id)
     {
       if(Auth()->guest())
       {
@@ -97,7 +114,6 @@ class ProduitsController extends Controller
           return redirect('/connexion');
       }
 
-      DB::table('produits')->where('id','1')->update();
 
       return redirect('/produits');
     }
