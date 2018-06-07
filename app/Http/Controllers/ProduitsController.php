@@ -16,7 +16,7 @@ class ProduitsController extends Controller
         return redirect('/connexion');
       }
 
-      $produits = Produit::all()->where('Valider', '=', 0);
+      $produits = Produit::all();
 
       return view('produits', [
 
@@ -36,6 +36,23 @@ class ProduitsController extends Controller
       $produits = Produit::all()->where('ID_Collecte', '=', $nom);
 
       return view('produits', [
+
+        'produits' => $produits,
+      ]);
+    }
+
+    public function listeconsultationtotal($nom)
+    {
+      if(Auth()->guest())
+      {
+        flash('Vous devez être connecté pour voir cette page')->error();
+
+        return redirect('/connexion');
+      }
+
+      $produits = Produit::all()->where('ID_Collecte', '=', $nom);
+
+      return view('total', [
 
         'produits' => $produits,
       ]);
@@ -114,7 +131,7 @@ class ProduitsController extends Controller
           return redirect('/connexion');
       }
 
-
+      DB::table('produits')->where('id',$id)->update();
       return redirect('/produits');
     }
 }

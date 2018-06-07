@@ -5,7 +5,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Consultation des collectes</title>
+<title>Total de la collecte</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -21,22 +21,85 @@
 
   <div class="w3-row">
 
-    <table id="customers">
+<table id="customers">
     <tr>
-    <th>Nom</th>
+    <th>ID</th>
+    <th>Fournisseur</th>
+    <th>Collecte</th>
+    <th>Poids</th>
     </tr>
-    <?php foreach ($collectes as $collecte): ?>
+    <?php foreach ($produits as $produit): ?>
     <tr>
     <td>
-        {{ $collecte->Nom }}
+        {{ $produit->id }}
     </td>
     <td>
-      <p><a href="/consultation-collecte/{{$collecte->Nom}}" class="button button3">En savoir plus</a></p>
+        {{ $produit->ID_Fournisseur }}
+    </td>
+    <td>
+        <?php $Nom = $produit->ID_Collecte; ?>{{ $produit->ID_Collecte }}
+    </td>
+    <td>
+        {{ $produit->Poids }}
+    </td>
+    <td>
+      <p><a href="/produits/{{$produit->id}}" class="button button3">En savoir plus</a></p>
     </td>
     </tr>
     <?php endforeach; ?>
 </table>
 
+<?php
+// RECUPERATION DU POIDS D'UNE PALETTE DANS LA COLLECTE
+$PAL = DB::table('Collectes')->where('Nom','=',$Nom)->get();
+$arrPAL = $PAL->toArray();
+?>
+@foreach($arrPAL as $pal)
+   <?php  $PoidsPalette = $pal->PoidsPal; ?>
+@endforeach
+
+<?php
+// RECUPERATION DU POIDS D'UNE GRILLE DANS LA COLLECTE
+$GRILLE = DB::table('Collectes')->where('Nom','=',$Nom)->get();
+$arrGRILLE = $GRILLE->toArray();
+?>
+@foreach($arrGRILLE as $grille)
+   <?php  $PoidsGrille = $grille->PoidsGrille; ?>
+@endforeach
+
+<?php $Somme = 0; ?>
+<?php foreach ($produits as $produit):
+$Somme += $produit->Poids ?>
+<?php endforeach; ?>
+
+<?php $Palette = 0; ?>
+<?php foreach ($produits as $produit):
+$Palette += $produit->NbPal ?>
+<?php endforeach;
+$TotalPalette = $Palette * $PoidsPalette;
+?>
+
+<?php $Grille = 0; ?>
+<?php foreach ($produits as $produit):
+$Grille += $produit->NbGrille ?>
+<?php endforeach;
+$TotalGrille = $Grille * $PoidsGrille;?>
+
+<?php $TotalFinal = $Somme - $TotalPalette - $TotalGrille ;?>
+
+<br>
+<table id="customers">
+    <tr>
+    <th>Total</th>
+    </tr>
+    <tr>
+    <td>
+        {{ $Somme }} Kg dont {{ $Palette }} palette(s) et {{ $Grille }} grille(s) = {{ $TotalPalette }} + {{ $TotalGrille }} + {{ $Somme }} = {{ $TotalFinal }} Kg
+    </td>
+    </tr>
+</table>
+
+    <p><a href="/ajoutproduit" class="button button3">Ajouter un produit</a></p>
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br>

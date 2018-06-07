@@ -56,11 +56,11 @@ Route::get('/collectes', 'CollectesController@liste');
 Route::get('/produits', 'ProduitsController@liste');
 Route::get('/consultation-collecte', 'CollectesController@listeconsultation');
 
-Route::get('/consultation-collecte/{nom}','ProduitsController@ListeConsultation');
+Route::get('/consultation-collecte/{nom}','ProduitsController@ListeConsultationTotal');
 
 
 Route::get('/produits/{id}','ProduitsController@Voir');
-Route::post('/produits/update/{id}','ProduitsController@Update');
+Route::get('/produits/update/{id}','ProduitsController@Update');
 Route::get('/produits/delete/{id}','ProduitsController@Delete');
 
 Route::get('/fournisseurs/{vif}','FournisseursController@Voir');
