@@ -17,6 +17,8 @@
     <a href="/utilisateurs" class="w3-bar-item w3-button w3-hide-small"> Utilisateurs</a>
     <a href="/collectes" class="w3-bar-item w3-button w3-hide-small"> Collectes</a>
     <a href="/fournisseurs" class="w3-bar-item w3-button w3-hide-small"> Fournisseurs</a>
+    <a href="/produits" class="w3-bar-item w3-button w3-hide-small"> Validation</a>
+    <a href="/consultation-collecte" class="w3-bar-item w3-button w3-hide-small"> Consultation</a>
 
 
   </div>

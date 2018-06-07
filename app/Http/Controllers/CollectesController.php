@@ -23,6 +23,22 @@ class CollectesController extends Controller
         'collectes' => $collectes,
       ]);
     }
+    public function listeconsultation()
+    {
+      if(Auth()->guest())
+      {
+        flash('Vous devez être connecté pour voir cette page')->error();
+
+        return redirect('/connexion');
+      }
+
+      $collectes = Collecte::all();
+
+      return view('consultation-collecte', [
+
+        'collectes' => $collectes,
+      ]);
+    }
     public function accueil()
     {
 
