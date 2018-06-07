@@ -161,7 +161,7 @@ button {
 
 /* Add a hover effect for buttons */
 button:hover {
-    opacity: 0.8;
+    opacity: 0.8s;
 }
 
 /* Extra style for the cancel button (red) */
