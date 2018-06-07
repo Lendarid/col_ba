@@ -18,10 +18,10 @@
 
   <?php $user = Auth::user();?>
   <h3 class="w3-center">Bienvenue <?php echo "$user->pseudo";?> !</h3>
-  <p class="w3-center"><em>~~~~~~</em></p>
+  <p class="w3-center"><em>     </em></p>
 
   <div class="w3-row">
-      <p><center>~~~~~~~~~~~ </center></p>
+      <p><center>           </center></p>
       <br><br><br><br><br><br><br><br><br><br>
     </div>
 </div>
@@ -32,23 +32,7 @@
   <a href="/connect" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Haut de page</a>
   </footer>
 
-<!-- Add Google Maps -->
 <script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(48.657087, 6.190892);
-  var mapOptions= {
-    center:myCenter,
-    zoom:15.6, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
 
 // Modal Image Gallery
 function onClick(element) {
