@@ -59,8 +59,12 @@
       <p>
         <center>
         Début de la collecte : {{ $collecte->DateDebut }}
-         &emsp;&emsp;&emsp;
-         Fin de la collecte : {{ $collecte->DateFin }}
+        &emsp;&emsp;&emsp;
+        Fin de la collecte : {{ $collecte->DateFin }}
+        <br>
+        Poids d'une palette : {{ $collecte->PoidsPal }}
+        &emsp;&emsp;&emsp;
+        Poids d'une grille : {{ $collecte->PoidsGrille}}
 
        </center>
      </p>
