@@ -22,6 +22,7 @@ li a, .dropbtn {
     text-align: center;
     padding: 8px 16px;
     text-decoration: none;
+    width: 150px;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
@@ -31,7 +32,9 @@ li a:hover, .dropdown:hover .dropbtn {
 
 li.dropdown {
     display: inline-block;
+    float: right;
 }
+
 
 .dropdown-content {
     display: none;
@@ -40,14 +43,16 @@ li.dropdown {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    float: right;
+
 }
 
 .dropdown-content a {
     color: grey;
-    padding: 12px 16px;
+    padding: auto;
     text-decoration: none;
     display: block;
-    text-align: left;
+    text-align: center;
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1}
