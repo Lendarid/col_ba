@@ -11,13 +11,14 @@
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
   <div class="imgcontainer">
+    <br><br>
     <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
-  </div><br>
+  </div><br><br>
 
     <center>  @include('flash::message') </center>
 
   <?php $user = Auth::user();?>
-  <h3 class="w3-center">Bienvenue <?php echo "$user->pseudo";?> !</h3>
+  <h1 class="w3-center">Bienvenue <?php echo "$user->pseudo";?> !</h1>
   <p class="w3-center"><em>     </em></p>
 
   <div class="w3-row">
@@ -25,12 +26,6 @@
       <br><br><br><br><br><br><br><br><br><br>
     </div>
 </div>
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="/connect" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Haut de page</a>
-  </footer>
 
 <script>
 
