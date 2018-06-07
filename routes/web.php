@@ -33,6 +33,9 @@ Route::get('/home', 'HomeController@index')->name('login');
 Route::get('/inscription', 'InscriptionController@formulaire');
 Route::post('/inscription', 'InscriptionController@traitement');
 
+Route::get('/ajoutproduit', 'AjoutProduitController@formulaire');
+Route::post('/ajoutproduit', 'AjoutProduitController@traitement');
+
 Route::get('/ajoutcollecte', 'AjoutCollecteController@formulaire');
 Route::post('/ajoutcollecte', 'AjoutCollecteController@traitement');
 
@@ -50,6 +53,15 @@ Route::get('/fournisseurs-inactif', 'FournisseursController@listeinactif');
 
 Route::get('/utilisateurs', 'UtilisateursController@Liste');
 Route::get('/collectes', 'CollectesController@liste');
+Route::get('/produits', 'ProduitsController@liste');
+Route::get('/consultation-collecte', 'CollectesController@listeconsultation');
+
+Route::get('/consultation-collecte/{nom}','ProduitsController@Consultation');
+
+
+Route::get('/produits/{id}','ProduitsController@Voir');
+Route::post('/produits/update/{id}','ProduitsController@Update');
+Route::get('/produits/delete/{id}','ProduitsController@Delete');
 
 Route::get('/fournisseurs/{vif}','FournisseursController@Voir');
 Route::get('/fournisseurs/update/{vif}','FournisseursController@Update');
