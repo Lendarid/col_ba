@@ -11,64 +11,77 @@
 |
 */
 
-Route::view('/','welcome');
-Route::get('/', 'CollectesController@accueil');
-
-Route::get('/connect','CompteController@accueil');
-
-Route::get('/home',function(){
-    return view('home');
-});
-
 Auth::routes();
 Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
 {
   Route::resource ('posts','PostsController');
-
 });
 
-Route::get('/home', 'HomeController@index')->name('login');
 
+/*    PAGE D'ACCUEIL    */
+
+//Page d'accueil
+Route::view('/','welcome');
+Route::get('/', 'CollectesController@accueil');
+//Page d'accueil du membre connecté
+Route::get('/connect','CompteController@accueil');
+
+
+/*    UTILISATEURS    */
+
+//Page qui affiche les utilisateurs
+Route::get('/utilisateurs', 'UtilisateursController@Liste');
+//Suppression modification d'utilisateur'
+Route::get('/utilisateurs/{pseudo}','UtilisateursController@Voir');
+Route::get('/utilisateurs/delete/{pseudo}','UtilisateursController@Delete');
 // Partie d'inscription
 Route::get('/inscription', 'InscriptionController@formulaire');
 Route::post('/inscription', 'InscriptionController@traitement');
-
-Route::get('/ajoutproduit', 'AjoutProduitController@formulaire');
-Route::post('/ajoutproduit', 'AjoutProduitController@traitement');
-
-Route::get('/ajoutcollecte', 'AjoutCollecteController@formulaire');
-Route::post('/ajoutcollecte', 'AjoutCollecteController@traitement');
-
-Route::get('/ajoutfournisseur', 'AjoutFournisseurController@formulaire');
-Route::post('/ajoutfournisseur', 'AjoutFournisseurController@traitement');
-
+//Page de connexion
 Route::get('/connexion','ConnexionController@formulaire');
 Route::post('/connexion', 'ConnexionController@traitement');
-
+//Page de deconnexion
 Route::get('/deconnexion','CompteController@deconnexion');
 
+/*    Fournisseurs    */
+
+//Page des fournisseurs et fournisseurs(actif/inactif)
 Route::get('/fournisseurs', 'FournisseursController@liste');
 Route::get('/fournisseurs-actif', 'FournisseursController@listeactif');
 Route::get('/fournisseurs-inactif', 'FournisseursController@listeinactif');
-
-Route::get('/utilisateurs', 'UtilisateursController@Liste');
-Route::get('/collectes', 'CollectesController@liste');
-Route::get('/produits', 'ProduitsController@liste');
-Route::get('/consultation-collecte', 'CollectesController@listeconsultation');
-
-Route::get('/consultation-collecte/{nom}','ProduitsController@ListeConsultationTotal');
-
-
-Route::get('/produits/{id}','ProduitsController@Voir');
-Route::get('/produits/update/{id}','ProduitsController@Update');
-Route::get('/produits/delete/{id}','ProduitsController@Delete');
-
+//Suppression modification de fournisseur
 Route::get('/fournisseurs/{vif}','FournisseursController@Voir');
 Route::get('/fournisseurs/update/{vif}','FournisseursController@Update');
 Route::get('/fournisseurs/delete/{vif}','FournisseursController@Delete');
+//Page d'ajout de fournisseur
+Route::get('/ajoutfournisseur', 'AjoutFournisseurController@formulaire');
+Route::post('/ajoutfournisseur', 'AjoutFournisseurController@traitement');
 
+
+/*    Collectes    */
+
+//Page qui affiche les collectes
+Route::get('/collectes', 'CollectesController@liste');
+//Page qui affiche les infos sur la collecte selectionné
+Route::get('/consultation-collecte', 'CollectesController@listeconsultation');
+Route::get('/consultation-collecte/{nom}','ProduitsController@ListeConsultationTotal');
+//Page d'ajout de collecte
+Route::get('/ajoutcollecte', 'AjoutCollecteController@formulaire');
+Route::post('/ajoutcollecte', 'AjoutCollecteController@traitement');
+//Suppression modification de collecte
 Route::get('/collectes/{nom}','CollectesController@Voir');
 Route::get('/collectes/delete/{nom}','CollectesController@Delete');
 
-Route::get('/utilisateurs/{pseudo}','UtilisateursController@Voir');
-Route::get('/utilisateurs/delete/{pseudo}','UtilisateursController@Delete');
+
+/*   PRODUITS   */
+
+//Page d'ajout de produit
+Route::get('/ajoutproduit', 'AjoutProduitController@formulaire');
+Route::post('/ajoutproduit', 'AjoutProduitController@traitement');
+//Page qui affiche les produits
+Route::get('/produits', 'ProduitsController@liste');
+//Page qui affiche les infos sur le produit sélectionné
+Route::get('/produits/{id}','ProduitsController@Voir');
+//Suppression modification de produits
+Route::get('/produits/update/{id}','ProduitsController@Update');
+Route::get('/produits/delete/{id}','ProduitsController@Delete');
