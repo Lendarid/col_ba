@@ -27,7 +27,8 @@ Route::get('/', 'CollectesController@accueil');
 Route::get('/connect','CompteController@accueil');
 
 
-Route::get('/mon-compte','CompteController@accueil');
+Route::get('/mon-compte','CompteController@MonCompte');
+Route::post('/modification-mot-de-passe','CompteController@ModificationMotDePasse');
 
 /*    UTILISATEURS    */
 

@@ -66,6 +66,7 @@
 
 </table>
     <p><a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></p>
+    <p><a href="/images" class="button button3">Gérer les logos</a></p>
     <p><a href="/fournisseurs-actif" class="button button3">Les fournisseurs actifs</a>
     <a href="/fournisseurs-inactif" class="button button3">Les fournisseurs inactifs</a></p>
     </div>

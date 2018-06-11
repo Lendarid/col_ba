@@ -1,11 +1,7 @@
-@if (Route::has('login')) <!-- Bouton Login / Logout -->
-    <div class="top-right links">
-        @if (Auth::check())
-
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Gestion des utilisateurs</title>
+<title>BA Nancy</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -14,55 +10,53 @@
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
-  <h3 class="w3-center">
-    <div class="imgcontainer">
-      <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
-    </div><br>
+  <div class="imgcontainer">
+    <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+  </div><br><br>
 
+  <p><center><h6> Pour modifier votre compte, veuillez remplir tous les champs ce-dessous et valider </h6></center></p>
+
+  <?php $user = Auth::user();
+    $pseudo = $user->pseudo;
+
+    $UTILISATEUR = DB::table('Utilisateurs')->where('pseudo','=',$pseudo)->get(); //Récupère les données de la table Fournisseur
+    $arrUTILISATEUR = $UTILISATEUR->toArray(); //Les convertis en tableau de valeurs
+  ?>
+
+  <form action="/modification-mot-de-passe" method="post">
+    {{csrf_field() }}
   <div class="w3-row">
+    <div class="container">
+      @foreach($arrUTILISATEUR as $utilisateur)
 
-    <form action="/inscription" method="post">
-      {{csrf_field() }}
-    <div class="w3-row">
-      <div class="container">
-        <label for="uname"><b>Utilisateur :</b></label>
-        <input type="text" placeholder="Nom d'Utilisateur" name="pseudo" required>
+         <label for="pseudo"><b>Pseudo :</b></label>
+         <input type="text" value="<?php echo $utilisateur->pseudo;?>" name="pseudo" required>
+         <?php if ($errors->has('password')): ?>
+            <center><p> {{ $errors->first('password')}} </p></center>
+         <?php endif; ?>
+      @endforeach
 
-        <p><center><button class="button button3" type="submit">Ajouter l'image'</button></center></p>
+      <label for="psw"><b>Mot de passe :</b></label>
+      <input type="password" placeholder="Mot de Passe" name="password" required>
+      <?php if ($errors->has('password')): ?>
+         <center><p> {{ $errors->first('password')}} </p></center>
+      <?php endif; ?>
 
-      </div>
-      </div>
-    </form>
+      <label for="psw"><b>Mot de passe (confirmation) :</b></label>
+      <input type="password" placeholder="Mot de Passe" name="password_confirmation" required>
+      <?php if ($errors->has('password_confirmation')): ?>
+          {{ $errors->first('password_confirmation')}}
+      <?php endif; ?>
 
+      <p><center><button class="button button3" type="submit">Modifier mon compte</button></center></p>
 
-<center><a href="/utilisateurs" class="button button3">Retour</a>
-<a href="/utilisateurs/delete/{{$utilisateur->pseudo}}" class="button button3">Supprimer</a></center>
+    </div>
+    </div>
+  </form>
+</div>
 
-<!-- Add Google Maps -->
 <script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(48.657087, 6.190892);
-  var mapOptions= {
-    center:myCenter,
-    zoom:15.6, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
 
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
 
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};
@@ -93,8 +87,3 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
 </body>
 </html>
-@else
-     Vous n'êtes pas connecté !
-@endif
-</div>
-@endif
