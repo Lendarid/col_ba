@@ -19,6 +19,7 @@
     <a href="/fournisseurs" class="w3-bar-item w3-button w3-hide-small"> Fournisseurs</a>
     <a href="/produits" class="w3-bar-item w3-button w3-hide-small"> Validation</a>
     <a href="/consultation-collecte" class="w3-bar-item w3-button w3-hide-small"> Consultation</a>
+    <a href="/images" class="w3-bar-item w3-button w3-hide-small"> Images</a>
 
 
   </div>

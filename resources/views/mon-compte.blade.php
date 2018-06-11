@@ -5,7 +5,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Gestion des fournisseurs</title>
+<title>Gestion des utilisateurs</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -21,46 +21,22 @@
 
   <div class="w3-row">
 
-    <table id="customers">
-    <tr>
-    <th>ID</th>
-    <th>VIF</th>
-    <th>Intitulé</th>
-    <th>Enseigne</th>
-    <th>Ville</th>
-    <th>Code Postal</th>
-    <th>Actif</th>
-    </tr>
-    <tr>
-      <td>
-          {{ $fournisseur->id }}
-      </td>
-      <td>
-          {{ $fournisseur->VIF }}
-      </td>
-      <td>
-          {{ $fournisseur->Intitule }}
-      </td>
-      <td>
-          {{ $fournisseur->Enseigne }}
-      </td>
-      <td>
-          {{ $fournisseur->Ville }}
-      </td>
-      <td>
-          {{ $fournisseur->CodePostal }}
-      </td>
-      <td>
-          {{ $fournisseur->Actif }}
-      </td>
-    </tr>
-    </table>
+    <form action="/inscription" method="post">
+      {{csrf_field() }}
+    <div class="w3-row">
+      <div class="container">
+        <label for="uname"><b>Utilisateur :</b></label>
+        <input type="text" placeholder="Nom d'Utilisateur" name="pseudo" required>
 
-  </div>
-</div>
+        <p><center><button class="button button3" type="submit">Ajouter l'image'</button></center></p>
 
-<center><a href="/fournisseurs" class="button button3">Retour</a>
-<a href="/fournisseurs/delete/{{$fournisseur->VIF}}" class="button button3">Supprimer</a></center>
+      </div>
+      </div>
+    </form>
+
+
+<center><a href="/utilisateurs" class="button button3">Retour</a>
+<a href="/utilisateurs/delete/{{$utilisateur->pseudo}}" class="button button3">Supprimer</a></center>
 
 <!-- Add Google Maps -->
 <script>

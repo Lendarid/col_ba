@@ -27,6 +27,8 @@ Route::get('/', 'CollectesController@accueil');
 Route::get('/connect','CompteController@accueil');
 
 
+Route::get('/mon-compte','CompteController@accueil');
+
 /*    UTILISATEURS    */
 
 //Page qui affiche les utilisateurs
@@ -85,3 +87,16 @@ Route::get('/produits/{id}','ProduitsController@Voir');
 //Suppression modification de produits
 Route::get('/produits/update/{id}','ProduitsController@Update');
 Route::get('/produits/delete/{id}','ProduitsController@Delete');
+
+/*   IMAGES   */
+
+//Page d'ajout de l'image
+Route::get('/ajoutimage', 'AjoutImageController@formulaire');
+Route::post('/ajoutimage', 'AjoutImageController@traitement');
+//Page qui affiche les images
+Route::get('/images', 'ImagesController@liste');
+//Page qui affiche les infos sur l'image' sélectionné
+Route::get('/images/{nom}','ImagesController@Voir');
+//Suppression modification de l'image
+Route::get('/images/delete/{nom}','ImagesController@Update');
+Route::get('/images/delete/{nom}','ImagesController@Delete');

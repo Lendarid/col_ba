@@ -5,7 +5,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Gestion des fournisseurs</title>
+<title>Gestion des images</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -24,43 +24,27 @@
     <table id="customers">
     <tr>
     <th>ID</th>
-    <th>VIF</th>
-    <th>Intitulé</th>
-    <th>Enseigne</th>
-    <th>Ville</th>
-    <th>Code Postal</th>
-    <th>Actif</th>
+    <th>Nom</th>
+    <th>Prévualisation</th>
     </tr>
     <tr>
       <td>
-          {{ $fournisseur->id }}
+          {{ $image->id }}
       </td>
       <td>
-          {{ $fournisseur->VIF }}
+          {{ $image->nom }}
       </td>
       <td>
-          {{ $fournisseur->Intitule }}
-      </td>
-      <td>
-          {{ $fournisseur->Enseigne }}
-      </td>
-      <td>
-          {{ $fournisseur->Ville }}
-      </td>
-      <td>
-          {{ $fournisseur->CodePostal }}
-      </td>
-      <td>
-          {{ $fournisseur->Actif }}
+        <?php $logo = "$image->lien"; ?>
+          <img src="<?php echo$logo; ?>" height="100" width="100" alt="Avatar" class="img">
       </td>
     </tr>
     </table>
-
   </div>
 </div>
 
-<center><a href="/fournisseurs" class="button button3">Retour</a>
-<a href="/fournisseurs/delete/{{$fournisseur->VIF}}" class="button button3">Supprimer</a></center>
+<center><a href="/images" class="button button3">Retour</a>
+<a href="/images/delete/{{$image->nom}}" class="button button3">Supprimer</a></center>
 
 <!-- Add Google Maps -->
 <script>

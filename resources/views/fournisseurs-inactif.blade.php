@@ -31,15 +31,16 @@
     </tr>
     <?php foreach ($fournisseurs as $fournisseur): ?>
     <tr>
-    <td>
-    <?php $logo = "$fournisseur->Enseigne"; ?>
-    <?php if ($logo == "Cora"): ?>
-      <img src="http://cora-france.fr/typo3conf/ext/cora_frontend/Resources/Public/img/elipse-cora.png" height="75" width="100" alt="Avatar" class="img">
-    <?php endif; ?>
-    <?php if ($logo == "Aldi"): ?>
-      <img src="https://www.aldi.fr/images/logo_nfr.png" height="75" width="75" alt="Avatar" class="img">
-    <?php endif; ?>
-    </td>
+      <td>
+      <?php $nom = "$fournisseur->Enseigne"; ?>
+      <?php
+        $LOGO = DB::table('Images')->where('nom','=',$nom)->get(); //Récupère les données de la table Fournisseur
+        $arrLOGO = $LOGO->toArray(); //Les convertis en tableau de valeurs
+      ?>
+      @foreach($arrLOGO as $logo)
+        <img src="<?php echo $logo->lien;?>" height="100" width="100" alt="Avatar" class="img">
+      @endforeach
+      </td>
     <td>
         {{ $fournisseur->VIF }}
     </td>

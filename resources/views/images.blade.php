@@ -5,7 +5,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Gestion des fournisseurs</title>
+<title>Gestion des images</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -24,43 +24,33 @@
     <table id="customers">
     <tr>
     <th>ID</th>
-    <th>VIF</th>
-    <th>Intitulé</th>
-    <th>Enseigne</th>
-    <th>Ville</th>
-    <th>Code Postal</th>
-    <th>Actif</th>
+    <th>Nom</th>
+    <th>Prévualisation</th>
     </tr>
+    <?php foreach ($images as $image): ?>
     <tr>
-      <td>
-          {{ $fournisseur->id }}
-      </td>
-      <td>
-          {{ $fournisseur->VIF }}
-      </td>
-      <td>
-          {{ $fournisseur->Intitule }}
-      </td>
-      <td>
-          {{ $fournisseur->Enseigne }}
-      </td>
-      <td>
-          {{ $fournisseur->Ville }}
-      </td>
-      <td>
-          {{ $fournisseur->CodePostal }}
-      </td>
-      <td>
-          {{ $fournisseur->Actif }}
-      </td>
+    <td>
+        {{ $image->id }}
+    </td>
+    <td>
+        {{ $image->nom }}
+    </td>
+    <td>
+      <?php $logo = "$image->lien"; ?>
+        <img src="<?php echo$logo; ?>" height="100" width="100" alt="Avatar" class="img">
+    </td>
+    <td>
+      <p><a href="/images/{{$image->nom}}" class="button button3">En savoir plus</a></p>
+    </td>
     </tr>
-    </table>
+    <?php endforeach; ?>
 
-  </div>
+</table>
+    <p><a href="/ajoutimage" class="button button3">Ajouter un logo</a></p>
+    </div>
 </div>
+<br><br><br><br><br><br><br><br><br>
 
-<center><a href="/fournisseurs" class="button button3">Retour</a>
-<a href="/fournisseurs/delete/{{$fournisseur->VIF}}" class="button button3">Supprimer</a></center>
 
 <!-- Add Google Maps -->
 <script>
