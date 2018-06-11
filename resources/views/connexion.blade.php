@@ -45,7 +45,7 @@
          <center><p> {{ $errors->first('password')}} </p></center>
       <?php endif; ?></p>
 
-      <button type="submit">Se connecter</button>
+      <center><button class="button button3" type="submit">Se connecter</button></center>
 
     </div>
     </div>

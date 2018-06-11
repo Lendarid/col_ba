@@ -20,7 +20,7 @@
             <a href="#home" class="w3-bar-item w3-button">Accueil</a>
             <a href="#collecte" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Collecte</a>
             <a href="#info" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> Info</a>
-              <a href="/connect" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">Panneau de gestion</a>
+              <a href="/connect" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-orange">Panneau de gestion</a>
           </div>
 
           @else
@@ -31,7 +31,7 @@
             <a href="#home" class="w3-bar-item w3-button">Accueil</a>
             <a href="#collecte" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Collecte</a>
             <a href="#info" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> Info</a>
-              <a href="/connexion" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-green">Se connecter</a>
+              <a href="/connexion" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-orange">Se connecter</a>
           </div>
           @endif
           </div>
