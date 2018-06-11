@@ -60,6 +60,14 @@
 </div>
 
 <center><a href="/fournisseurs" class="button button3">Retour</a>
+
+  <?php $actif = "$fournisseur->Actif"; ?>
+  <?php if ($actif == 0): ?>
+    <a href="/fournisseurs/activer/{{$fournisseur->VIF}}" class="button button3">Activer</a>
+  <?php endif; ?>
+  <?php if ($actif == 1): ?>
+    <a href="/fournisseurs/desactiver/{{$fournisseur->VIF}}" class="button button3">Désactiver</a>
+  <?php endif; ?>
 <a href="/fournisseurs/delete/{{$fournisseur->VIF}}" class="button button3">Supprimer</a></center>
 
 <!-- Add Google Maps -->

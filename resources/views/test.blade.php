@@ -1,11 +1,7 @@
-@if (Route::has('login')) <!-- Bouton Login / Logout -->
-    <div class="top-right links">
-        @if (Auth::check())
-
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Gestion des utilisateurs</title>
+<title>BA Nancy</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -14,60 +10,24 @@
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
-  <h3 class="w3-center">
-    <div class="imgcontainer">
-      <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
-    </div><br>
+  <div class="imgcontainer">
+    <br><br>
+    <img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+  </div><br><br>
+
+    <center>  @include('flash::message') </center>
+
+  <?php $user = Auth::user();?>
+  <h1 class="w3-center">Bienvenue <?php echo "$user->pseudo";?> !</h1>
+  <p class="w3-center"><em>     </em></p>
 
   <div class="w3-row">
-
-    <table id="customers">
-    <tr>
-    <th>ID</th>
-    <th>Pseudo</th>
-    <th>Email</th>
-    <th>Niveau</th>
-    </tr>
-    <tr>
-    <td>
-        {{ $utilisateur->id }}
-    </td>
-    <td>
-        {{ $utilisateur->pseudo }}
-    </td>
-    <td>
-        {{ $utilisateur->email }}
-    </td>
-    <td>
-        {{ $utilisateur->niveau }}
-    </td>
-    </tr>
-    </table>
-
-  </div>
+      <p><center>           </center></p>
+      <br><br><br><br><br><br><br><br><br><br>
+    </div>
 </div>
 
-<center><a href="/utilisateurs" class="button button3">Retour</a>
-<a href="/utilisateurs/delete/{{$utilisateur->pseudo}}" class="button button3">Supprimer</a>
-
-
-<!-- Add Google Maps -->
 <script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(48.657087, 6.190892);
-  var mapOptions= {
-    center:myCenter,
-    zoom:15.6, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
 
 // Modal Image Gallery
 function onClick(element) {
@@ -106,8 +66,3 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
 </body>
 </html>
-@else
-     Vous n'êtes pas connecté !
-@endif
-</div>
-@endif

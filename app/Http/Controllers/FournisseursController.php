@@ -98,15 +98,23 @@ class FournisseursController extends Controller
 
         return redirect('/fournisseurs');
     }
-    public function update($vif)
+    public function desactiver($vif)
     {
-      if(Auth()->guest())
-      {
-          flash('Vous devez être connecté pour voir cette page')->error();
+      $user = Fournisseur::where('vif',$vif)->first();
 
-          return redirect('/connexion');
-      }
+      $user->actif = "0";
 
+      $user->save();
+
+      return redirect('/fournisseurs');
+    }
+    public function activer($vif)
+    {
+      $user = Fournisseur::where('vif',$vif)->first();
+
+      $user->actif = "1";
+
+      $user->save();
 
       return redirect('/fournisseurs');
     }

@@ -17,6 +17,9 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
   Route::resource ('posts','PostsController');
 });
 
+Route::get('/test/{pseudo}/{newpseudo}/{email}', 'UtilisateursController@update');
+
+
 
 /*    PAGE D'ACCUEIL    */
 
@@ -37,6 +40,7 @@ Route::get('/utilisateurs', 'UtilisateursController@Liste');
 //Suppression modification d'utilisateur'
 Route::get('/utilisateurs/{pseudo}','UtilisateursController@Voir');
 Route::get('/utilisateurs/delete/{pseudo}','UtilisateursController@Delete');
+
 // Partie d'inscription
 Route::get('/inscription', 'InscriptionController@formulaire');
 Route::post('/inscription', 'InscriptionController@traitement');
@@ -52,6 +56,9 @@ Route::get('/deconnexion','CompteController@deconnexion');
 Route::get('/fournisseurs', 'FournisseursController@liste');
 Route::get('/fournisseurs-actif', 'FournisseursController@listeactif');
 Route::get('/fournisseurs-inactif', 'FournisseursController@listeinactif');
+// Activer ou désactiver les Fournisseurs
+Route::get('/fournisseurs/desactiver/{vif}', 'FournisseursController@Desactiver');
+Route::get('/fournisseurs/activer/{vif}', 'FournisseursController@Activer');
 //Suppression modification de fournisseur
 Route::get('/fournisseurs/{vif}','FournisseursController@Voir');
 Route::get('/fournisseurs/update/{vif}','FournisseursController@Update');

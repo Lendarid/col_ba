@@ -56,17 +56,14 @@ class UtilisateursController extends Controller
 
         return redirect('/utilisateurs');
     }
-    public function update($pseudo)
+    public function update($pseudo, $email)
     {
-      if(Auth()->guest())
-      {
-          flash('Vous devez être connecté pour voir cette page')->error();
+      $user = Utilisateur::where('pseudo',$pseudo)->first();
 
-          return redirect('/connexion');
-      }
+      $user->email = $email;
 
-      DB::table('utilisateurs')->where('pseudo',$pseudo)->update();
+      $user->save();
 
-      return redirect('/utilisateurs');
+
     }
 }
