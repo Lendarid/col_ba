@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             'pseudo' => 'admin',
             'email' => 'admin@gmail.com',
             'mot_de_passe' => bcrypt('123456'),
+            'actif' => '1',
             'niveau' => '1',
         ]);
     }
