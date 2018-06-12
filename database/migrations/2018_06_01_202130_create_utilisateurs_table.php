@@ -19,7 +19,7 @@ class CreateUtilisateursTable extends Migration
             $table->string('email')->unique();
             $table->string('mot_de_passe');
             $table->string('niveau');
-            $table->string('actif');
+            $table->string('actif')->defaut(0);;
             $table->timestamps();
         });
     }
