@@ -17,9 +17,6 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
   Route::resource ('posts','PostsController');
 });
 
-Route::get('/test/{pseudo}/{newpseudo}/{email}', 'UtilisateursController@update');
-
-
 
 /*    PAGE D'ACCUEIL    */
 
@@ -37,6 +34,15 @@ Route::post('/modification-mot-de-passe','CompteController@ModificationMotDePass
 
 //Page qui affiche les utilisateurs
 Route::get('/utilisateurs', 'UtilisateursController@Liste');
+Route::get('/utilisateurs-actif', 'UtilisateursController@listeactif');
+Route::get('/utilisateurs-inactif', 'UtilisateursController@listeinactif');
+// Activer ou désactiver les utilisateurs
+Route::get('/utilisateurs/desactiver/{id}', 'UtilisateursController@Desactiver');
+Route::get('/utilisateurs/activer/{id}', 'UtilisateursController@Activer');
+Route::get('/utilisateurs/admin/{id}', 'UtilisateursController@Admin');
+Route::get('/utilisateurs/consultant/{id}', 'UtilisateursController@Consultant');
+Route::get('/utilisateurs/visiteur/{id}', 'UtilisateursController@Visiteur');
+
 //Suppression modification d'utilisateur'
 Route::get('/utilisateurs/{pseudo}','UtilisateursController@Voir');
 Route::get('/utilisateurs/delete/{pseudo}','UtilisateursController@Delete');
@@ -90,6 +96,9 @@ Route::get('/ajoutproduit', 'AjoutProduitController@formulaire');
 Route::post('/ajoutproduit', 'AjoutProduitController@traitement');
 //Page qui affiche les produits
 Route::get('/produits', 'ProduitsController@liste');
+// Activer ou désactiver les produits
+Route::get('/produits/desactiver/{id}', 'ProduitsController@Desactiver');
+Route::get('/produits/activer/{id}', 'ProduitsController@Activer');
 //Page qui affiche les infos sur le produit sélectionné
 Route::get('/produits/{id}','ProduitsController@Voir');
 //Suppression modification de produits

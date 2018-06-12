@@ -28,6 +28,7 @@ class InscriptionController extends Controller
           'pseudo' => ['required'],
           'email' => ['required','email'],
           'niveau' => ['required'],
+          'actif' => ['required'],
           'password' => ['required','confirmed'],
           'password_confirmation' => ['required'],
       ]);
@@ -37,6 +38,7 @@ class InscriptionController extends Controller
         'pseudo' => request('pseudo'),
         'email' => request('email'),
         'niveau' => request('niveau'),
+        'actif' => request('actif'),
         'mot_de_passe' => bcrypt(request('password')),
       ]);
 

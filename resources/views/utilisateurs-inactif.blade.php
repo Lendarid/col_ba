@@ -14,7 +14,7 @@
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Gestion des fournisseurs</title>
+<title>Gestion des utilisateurs</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -29,55 +29,46 @@
     </div><br>
 
   <div class="w3-row">
+
     <table id="customers">
     <tr>
-    <th></th>
-    <th>VIF</th>
-    <th>Intitule</th>
-    <th>Enseigne</th>
+    <th>Pseudo</th>
+    <th>Email</th>
+    <th>Niveau</th>
     <th>Activité</th>
     </tr>
-    <?php foreach ($fournisseurs as $fournisseur): ?>
+    <?php foreach ($utilisateurs as $utilisateur): ?>
     <tr>
     <td>
-    <?php $nom = "$fournisseur->Enseigne"; ?>
-    <?php
-      $LOGO = DB::table('Images')->where('nom','=',$nom)->get(); //Récupère les données de la table Fournisseur
-      $arrLOGO = $LOGO->toArray(); //Les convertis en tableau de valeurs
-    ?>
-    @foreach($arrLOGO as $logo)
-      <img src="<?php echo $logo->lien;?>" height="100" width="100" alt="Avatar" class="img">
-    @endforeach
+        {{ $utilisateur->pseudo }}
     </td>
     <td>
-        {{ $fournisseur->VIF }}
+        {{ $utilisateur->email }}
     </td>
     <td>
-        {{ $fournisseur->Intitule }}
-    </td>
-    <td>
-        {{ $fournisseur->Enseigne }}
-    </td>
-    <td>
-    <?php $actif = "$fournisseur->Actif"; ?>
-    <?php if ($actif == 0): ?>
-      <p><a href="/fournisseurs-inactif" class="button buttonnovalidate">Inactif</a></p>
+    <?php $niveau = "$utilisateur->niveau"; ?>
+    <?php if ($niveau == 1): ?>
+      Administrateur
     <?php endif; ?>
-    <?php if ($actif == 1): ?>
-      <p><a href="/fournisseurs-actif" class="button buttonvalidate">Actif</a></p>
+    <?php if ($niveau == 2): ?>
+      Consultant
+    <?php endif; ?>
+    <?php if ($niveau == 3): ?>
+      Visiteur
     <?php endif; ?>
     </td>
     <td>
-      <p><a href="/fournisseurs/{{$fournisseur->VIF}}" class="button button3">En savoir plus</a></p>
+      <p><a href="/utilisateurs-inactif" class="button buttonnovalidate">Désactivé</a></p>
+    </td>
+    <td>
+      <p><a href="/utilisateurs/{{$utilisateur->pseudo}}" class="button button3">Voir le profil</a></p>
     </td>
     </tr>
     <?php endforeach; ?>
 
 </table>
-    <p><a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></p>
-    <p><a href="/images" class="button button3">Gérer les logos</a></p>
-    <p><a href="/fournisseurs-actif" class="button button3">Les fournisseurs actifs</a>
-    <a href="/fournisseurs-inactif" class="button button3">Les fournisseurs inactifs</a></p>
+    <p><center><a href="/utilisateurs" class="button button3">Retour</a>
+    <a href="/inscription" class="button button3">Ajouter un utilisateur</a></p></center>
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br>

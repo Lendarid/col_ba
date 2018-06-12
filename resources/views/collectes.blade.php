@@ -1,6 +1,15 @@
 @if (Route::has('login')) <!-- Bouton Login / Logout -->
     <div class="top-right links">
         @if (Auth::check())
+        <?php $user = Auth::user();?>
+        <?php $actif = "$user->actif";?>
+        <?php if ($actif == 0): ?>
+          <center><img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+          <br><br><br><br><p> Votre compte n'est pas actif, veuillez contacter l'administrateur du site ! </p>
+          <p><a href="/deconnexion" class="button buttonnovalidate">Se déconnecter</a></p></center>
+          <?php return redirect(''); ?>
+        <?php endif; ?>
+        <!-- Fin de test de l'activité du compte de l'utilisateur -->
 
 @extends('layouts.style')
 <!DOCTYPE html>
@@ -23,16 +32,12 @@
 
     <table id="customers">
     <tr>
-    <th>ID</th>
     <th>Nom</th>
     <th>Date de début</th>
     <th>Date de fin</th>
     </tr>
     <?php foreach ($collectes as $collecte): ?>
     <tr>
-    <td>
-        {{ $collecte->id }}
-    </td>
     <td>
         {{ $collecte->Nom }}
     </td>

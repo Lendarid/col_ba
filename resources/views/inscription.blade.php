@@ -1,3 +1,13 @@
+<?php $user = Auth::user();?>
+<?php $actif = "$user->actif";?>
+<?php if ($actif == 0): ?>
+  <center><img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+  <br><br><br><br><p> Votre compte n'est pas actif, veuillez contacter l'administrateur du site ! </p>
+  <p><a href="/deconnexion" class="button buttonnovalidate">Se déconnecter</a></p></center>
+  <?php return redirect(''); ?>
+<?php endif; ?>
+<!-- Fin de test de l'activité du compte de l'utilisateur -->
+
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
@@ -27,12 +37,15 @@
       <input type="text" placeholder="Email" name="email" required>
 
       <label for="uname"><b>Niveau :</b></label>
-
-
       <center><p><select name="niveau" required>
         <option value="1">Administrateur</option>
         <option value="2">Consultant</option>
-        <option value="3">3</option>
+        <option value="3">Visiteur</option>
+      </select></p></center>
+
+      <label for="uname"><b>Activité :</b></label>
+      <center><p><select name="actif" required>
+        <option value="0">Désactivé</option>
       </select></p></center>
 
       <label for="psw"><b>Mot de passe :</b></label>

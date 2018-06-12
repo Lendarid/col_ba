@@ -1,6 +1,15 @@
 @if (Route::has('login')) <!-- Bouton Login / Logout -->
     <div class="top-right links">
         @if (Auth::check())
+        <?php $user = Auth::user();?>
+        <?php $actif = "$user->actif";?>
+        <?php if ($actif == 0): ?>
+          <center><img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+          <br><br><br><br><p> Votre compte n'est pas actif, veuillez contacter l'administrateur du site ! </p>
+          <p><a href="/deconnexion" class="button buttonnovalidate">Se déconnecter</a></p></center>
+          <?php return redirect(''); ?>
+        <?php endif; ?>
+        <!-- Fin de test de l'activité du compte de l'utilisateur -->
 
 @extends('layouts.style')
 <!DOCTYPE html>
@@ -23,16 +32,13 @@
 
     <table id="customers">
     <tr>
-    <th>ID</th>
     <th>Pseudo</th>
     <th>Email</th>
     <th>Niveau</th>
+    <th>Activité</th>
     </tr>
     <?php foreach ($utilisateurs as $utilisateur): ?>
     <tr>
-    <td>
-        {{ $utilisateur->id }}
-    </td>
     <td>
         {{ $utilisateur->pseudo }}
     </td>
@@ -40,7 +46,25 @@
         {{ $utilisateur->email }}
     </td>
     <td>
-        {{ $utilisateur->niveau }}
+    <?php $niveau = "$utilisateur->niveau"; ?>
+    <?php if ($niveau == 1): ?>
+      Administrateur
+    <?php endif; ?>
+    <?php if ($niveau == 2): ?>
+      Consultant
+    <?php endif; ?>
+    <?php if ($niveau == 3): ?>
+      Visiteur
+    <?php endif; ?>
+    </td>
+    <td>
+    <?php $actif = "$utilisateur->actif"; ?>
+    <?php if ($actif == 0): ?>
+      <p><a href="/utilisateurs-inactif" class="button buttonnovalidate">Désactivé</a></p>
+    <?php endif; ?>
+    <?php if ($actif == 1): ?>
+      <p><a href="/utilisateurs-actif" class="button buttonvalidate">Activé</a></p>
+    <?php endif; ?>
     </td>
     <td>
       <p><a href="/utilisateurs/{{$utilisateur->pseudo}}" class="button button3">Voir le profil</a></p>
@@ -50,6 +74,8 @@
 
 </table>
     <p><a href="/inscription" class="button button3">Ajouter un utilisateur</a></p>
+    <p><a href="/utilisateurs-actif" class="button button3">Les utilisateurs actifs</a>
+    <a href="/utilisateurs-inactif" class="button button3">Les utilisateurs inactifs</a></p>
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br>

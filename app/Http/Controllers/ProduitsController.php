@@ -134,4 +134,24 @@ class ProduitsController extends Controller
       DB::table('produits')->where('id',$id)->update();
       return redirect('/produits');
     }
+    public function desactiver($id)
+    {
+      $user = Produit::where('id',$id)->first();
+
+      $user->valider = "0";
+
+      $user->save();
+
+      return redirect('/produits');
+    }
+    public function activer($id)
+    {
+      $user = Produit::where('id',$id)->first();
+
+      $user->Valider = "1";
+
+      $user->save();
+
+      return redirect('/produits');
+    }
 }

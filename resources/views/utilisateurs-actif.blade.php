@@ -1,11 +1,20 @@
 @if (Route::has('login')) <!-- Bouton Login / Logout -->
     <div class="top-right links">
         @if (Auth::check())
+        <?php $user = Auth::user();?>
+        <?php $actif = "$user->actif";?>
+        <?php if ($actif == 0): ?>
+          <center><img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+          <br><br><br><br><p> Votre compte n'est pas actif, veuillez contacter l'administrateur du site ! </p>
+          <p><a href="/deconnexion" class="button buttonnovalidate">Se déconnecter</a></p></center>
+          <?php return redirect(''); ?>
+        <?php endif; ?>
+        <!-- Fin de test de l'activité du compte de l'utilisateur -->
 
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
-<title>Consultation de collecte</title>
+<title>Gestion des utilisateurs</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
@@ -23,29 +32,46 @@
 
     <table id="customers">
     <tr>
-    <th>Fournisseur</th>
-    <th>Poids</th>
-    <th>Creation</th>
+    <th>Pseudo</th>
+    <th>Email</th>
+    <th>Niveau</th>
+    <th>Activité</th>
     </tr>
+    <?php foreach ($utilisateurs as $utilisateur): ?>
     <tr>
-      <td>
-          {{ $produit->Id_Poids }}
-      </td>
-      <td>
-          {{ $produit->Poids }}
-      </td>
-      <td>
-          {{ $produit->Creation }}
-      </td>
-      <td>
-        <p><a href="/produits/{{$produit->id}}" class="button button3">Voir</a></p>
-      </td>
+    <td>
+        {{ $utilisateur->pseudo }}
+    </td>
+    <td>
+        {{ $utilisateur->email }}
+    </td>
+    <td>
+    <?php $niveau = "$utilisateur->niveau"; ?>
+    <?php if ($niveau == 1): ?>
+      Administrateur
+    <?php endif; ?>
+    <?php if ($niveau == 2): ?>
+      Consultant
+    <?php endif; ?>
+    <?php if ($niveau == 3): ?>
+      Visiteur
+    <?php endif; ?>
+    </td>
+    <td>
+      <p><a href="/utilisateurs-actif" class="button buttonvalidate">Activé</a></p>
+    </td>
+    <td>
+      <p><a href="/utilisateurs/{{$utilisateur->pseudo}}" class="button button3">Voir le profil</a></p>
+    </td>
     </tr>
-    </table>
-  </div>
+    <?php endforeach; ?>
+</table>
+    <p><center><a href="/utilisateurs" class="button button3">Retour</a>
+    <a href="/inscription" class="button button3">Ajouter un utilisateur</a></p></center>
+    </div>
 </div>
+<br><br><br><br><br><br><br><br><br>
 
-<center><a href="/consultation-collecte" class="button button3">Retour</a>
 
 <!-- Add Google Maps -->
 <script>

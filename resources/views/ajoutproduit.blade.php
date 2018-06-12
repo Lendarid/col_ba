@@ -1,3 +1,13 @@
+<?php $user = Auth::user();?>
+<?php $actif = "$user->actif";?>
+<?php if ($actif == 0): ?>
+  <center><img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+  <br><br><br><br><p> Votre compte n'est pas actif, veuillez contacter l'administrateur du site ! </p>
+  <p><a href="/deconnexion" class="button buttonnovalidate">Se déconnecter</a></p></center>
+  <?php return redirect(''); ?>
+<?php endif; ?>
+<!-- Fin de test de l'activité du compte de l'utilisateur -->
+
 @extends('layouts.style')
 <!DOCTYPE html>
 <html>
@@ -58,13 +68,12 @@
       <label for="uname"><b>Nombre grille :</b></label>
       <input type="text" placeholder="Nb Grille" name="nbgrille" required>
 
-      <input type='hidden' name='creation' id='timestamp' value='<?php echo date("Y-m-d G:H:s"); ?>' /> 
+      <input type='hidden' name='creation' id='timestamp' value='<?php echo date("Y-m-d G:H:s"); ?>' />
 
       <input type="hidden" name="id_user" value="<?php echo "$user->pseudo";?>" />
 
       <label for="uname"><b>Activité :</b></label>
       <center><p><select name="valider" required>
-        <option value="1">Validé</option>
         <option value="0">Désactivé</option>
       </select></p></center>
 
