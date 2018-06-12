@@ -37,6 +37,8 @@
     <th>Poids</th>
     </tr>
     <?php foreach ($produits as $produit): ?>
+      <?php $actif = "$produit->Valider"; ?>
+      <?php if ($actif == 1): ?>
     <tr>
     <td>
         {{ $produit->ID_Fournisseur }}
@@ -51,6 +53,7 @@
       <p><a href="/produits/{{$produit->id}}" class="button button3">En savoir plus</a></p>
     </td>
     </tr>
+    <?php endif; ?>
     <?php endforeach; ?>
 </table>
 
@@ -73,20 +76,29 @@ $arrGRILLE = $GRILLE->toArray();
 @endforeach
 
 <?php $Somme = 0; ?>
-<?php foreach ($produits as $produit):
-$Somme += $produit->Poids ?>
+<?php foreach ($produits as $produit): ?>
+  <?php $actif = "$produit->Valider"; ?>
+  <?php if ($actif == 1):
+    $Somme += $produit->Poids ?>
+  <?php endif; ?>
 <?php endforeach; ?>
 
 <?php $Palette = 0; ?>
-<?php foreach ($produits as $produit):
-$Palette += $produit->NbPal ?>
+<?php foreach ($produits as $produit): ?>
+  <?php $actif = "$produit->Valider"; ?>
+  <?php if ($actif == 1):
+    $Palette += $produit->NbPal ?>
+  <?php endif; ?>
 <?php endforeach;
 $TotalPalette = $Palette * $PoidsPalette;
 ?>
 
 <?php $Grille = 0; ?>
-<?php foreach ($produits as $produit):
-$Grille += $produit->NbGrille ?>
+<?php foreach ($produits as $produit):?>
+  <?php $actif = "$produit->Valider"; ?>
+  <?php if ($actif == 1):
+    $Grille += $produit->NbGrille ?>
+  <?php endif; ?>
 <?php endforeach;
 $TotalGrille = $Grille * $PoidsGrille;?>
 

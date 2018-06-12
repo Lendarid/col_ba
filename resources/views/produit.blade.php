@@ -32,7 +32,6 @@
 
     <table id="customers">
     <tr>
-    <th>ID</th>
     <th>Utilisateur</th>
     <th>Fournisseur</th>
     <th>Collecte</th>
@@ -42,9 +41,6 @@
     <th>Creation</th>
     </tr>
     <tr>
-      <td>
-          {{ $produit->id }}
-      </td>
       <td>
           {{ $produit->ID_User }}
       </td>
