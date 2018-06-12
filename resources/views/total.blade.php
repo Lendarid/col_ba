@@ -111,7 +111,7 @@ $TotalGrille = $Grille * $PoidsGrille;?>
     </tr>
     <tr>
     <td>
-        {{ $Somme }} Kg dont {{ $Palette }} palette(s) et {{ $Grille }} grille(s) = {{ $Somme }} - ( {{ $TotalPalette }} + {{ $TotalGrille }} )= {{ $TotalFinal }} Kg
+        {{ $Somme }} Kg dont {{ $Palette }} palette(s) et {{ $Grille }} grille(s) = {{ $Somme }} - ( {{ $TotalPalette }} + {{ $TotalGrille }} ) = {{ $TotalFinal }} Kg
     </td>
     </tr>
 </table>
