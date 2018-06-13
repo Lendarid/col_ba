@@ -1,6 +1,6 @@
 @extends('layouts.scripts')
 @extends('layouts.style')
-@extends('layouts.navbar')
+
 <!DOCTYPE html>
 <html>
 <title>BA Nancy</title>
