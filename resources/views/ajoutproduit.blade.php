@@ -8,7 +8,10 @@
 <?php endif; ?>
 <!-- Fin de test de l'activité du compte de l'utilisateur -->
 
+@extends('layouts.scripts')
 @extends('layouts.style')
+@extends('layouts.navbar')
+
 <!DOCTYPE html>
 <html>
 <title>Gestion des produits</title>
@@ -16,7 +19,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
 
-@extends('layouts.navbar')
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
