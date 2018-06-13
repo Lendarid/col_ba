@@ -54,22 +54,28 @@
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
   <div class="w3-row">
-      <h1 class="w3-center">Nos Collectes</h1>
+      <h1 class="w3-center">Notre Dernière Collecte</h1>
+      <br>
     <?php foreach ($collectes as $collecte): ?>
       <h3 class="w3-center"><span style="text-decoration: underline;"><em>{{ $collecte->Nom }}</em><span></h3>
       <div class="w3-row">
-      <p>
+      <h4>
         <center>
         Début de la collecte : {{ $collecte->DateDebut }}
         &emsp;&emsp;&emsp;
         Fin de la collecte : {{ $collecte->DateFin }}
         <br>
-        Poids d'une palette : {{ $collecte->PoidsPal }}
+        Nombre de palette(s) :
         &emsp;&emsp;&emsp;
-        Poids d'une grille : {{ $collecte->PoidsGrille}}
+        Nombre de grille(<s></s>) : 
+        <br>
+        Poids total :
+        &emsp;&emsp;&emsp;&emsp;
+        Prix estimé :
+
 
        </center>
-     </p>
+     </h4>
 
       </div> </div>
     <?php endforeach; ?>
