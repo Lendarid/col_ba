@@ -54,6 +54,11 @@ li.dropdown {
     display: block;
     text-align: center;
 }
+.opaque-navbar {
+    background-color: rgba(0,0,0,0);
+    height: 60px;
+    border-bottom: 0px;
+}
 
 .dropdown-content a:hover {background-color: #f1f1f1}
 
