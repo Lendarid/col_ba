@@ -15,7 +15,7 @@
         <?php $niveau = "$user->niveau";?>
         <?php if ($niveau == 2 || $niveau == 3): ?>
           <center><img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
-          <br><br><br><br><p> Votre compte ne possède pas les droits de visionner cette page, veuillez contacter l'administrateur du site ! </p>
+          <br><br><br><br><h3 class="w3-center w3-grayscale w3-xlarge"> Votre compte ne possède pas les droits de visionner cette page, veuillez contacter l'administrateur du site ! </h3>
           <p><a href="/connect" class="button buttonnovalidate">Accueil</a></p>
           <p><a href="/deconnexion" class="button buttonnovalidate">Se déconnecter</a></p></center>
           <?php return redirect(''); ?>
