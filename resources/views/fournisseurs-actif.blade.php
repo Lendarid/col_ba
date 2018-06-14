@@ -88,7 +88,7 @@
     <?php endforeach; ?>
 
 </table>
-    <p><center><a href="/fournisseurs" class="button button3">Retour</a>
+    <p><center><a href="/fournisseurs" class="button button3">Retour</a> 
       <?php if ($niveau == 1): ?>
             <a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></center></p>
       <?php endif; ?>
