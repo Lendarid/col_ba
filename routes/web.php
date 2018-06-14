@@ -23,6 +23,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function()
 //Page d'accueil
 Route::view('/','welcome');
 Route::get('/', 'CollectesController@accueil');
+
+Route::get('/visiter/{vif}','FournisseursController@Voirvisiter');
 //Page d'accueil du membre connecté
 Route::get('/connect','CompteController@accueil');
 
