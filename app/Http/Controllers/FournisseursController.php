@@ -85,6 +85,20 @@ class FournisseursController extends Controller
         return $vif;
     }
 
+    public function voirvisiter()
+    {
+
+        $vif = request('vif');
+
+        $fournisseur = Fournisseur::where('vif', $vif)->first();
+
+        return view('fournisseurvisiter', [
+            'fournisseur' => $fournisseur,
+        ]);
+
+        return $vif;
+    }
+
     public function delete($vif)
     {
         if(Auth()->guest())

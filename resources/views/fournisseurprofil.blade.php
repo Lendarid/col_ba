@@ -70,7 +70,13 @@
           {{ $fournisseur->CodePostal }}
       </td>
       <td>
-          {{ $fournisseur->Actif }}
+        <?php $actif = "$fournisseur->Actif"; ?>
+        <?php if ($actif == 0): ?>
+          <p><a href="/fournisseurs-inactif" class="button buttonnovalidate">Inactif</a></p>
+        <?php endif; ?>
+        <?php if ($actif == 1): ?>
+          <p><a href="/fournisseurs-actif" class="button buttonvalidate">Actif</a></p>
+        <?php endif; ?>
       </td>
     </tr>
     </table>
