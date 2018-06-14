@@ -11,6 +11,10 @@
         <?php endif; ?>
         <!-- Fin de test de l'activité du compte de l'utilisateur -->
 
+        <?php $user = Auth::user();?>
+        <?php $niveau = "$user->niveau";?>
+        <!-- Fin de test du niveau du compte de l'utilisateur -->
+
 @extends('layouts.scripts')
 @extends('layouts.style')
 @extends('layouts.navbar')
@@ -63,23 +67,41 @@
     <td>
     <?php $actif = "$fournisseur->Actif"; ?>
     <?php if ($actif == 0): ?>
-      <p><a href="/fournisseurs-inactif" class="button buttonnovalidate">Inactif</a></p>
+      <?php if ($niveau == 3): ?>
+          <p><a href="/fournisseurs" class="button buttonnovalidate">Inactif</a></p>
+      <?php endif; ?>
+      <?php if ($niveau == 1 | $niveau == 2): ?>
+          <p><a href="/fournisseurs-inactif" class="button buttonnovalidate">Inactif</a></p>
+      <?php endif; ?>
     <?php endif; ?>
     <?php if ($actif == 1): ?>
-      <p><a href="/fournisseurs-actif" class="button buttonvalidate">Actif</a></p>
+      <?php if ($niveau == 3): ?>
+          <p><a href="/fournisseurs" class="button buttonvalidate">Actif</a></p>
+      <?php endif; ?>
+      <?php if ($niveau == 1 | $niveau == 2): ?>
+          <p><a href="/fournisseurs-actif" class="button buttonvalidate">Actif</a></p>
+      <?php endif; ?>
     <?php endif; ?>
     </td>
-    <td>
-      <p><a href="/fournisseurs/{{$fournisseur->VIF}}" class="button button3">En savoir plus</a></p>
-    </td>
+    <?php if ($niveau == 1 | $niveau == 2): ?>
+      <td>
+        <p><a href="/fournisseurs/{{$fournisseur->VIF}}" class="button button3">En savoir plus</a></p>
+      </td>
+    <?php endif; ?>
     </tr>
     <?php endforeach; ?>
-
 </table>
-    <p><a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></p>
-    <p><a href="/images" class="button button3">Gérer les logos</a></p>
-    <p><a href="/fournisseurs-actif" class="button button3">Les fournisseurs actifs</a>
-    <a href="/fournisseurs-inactif" class="button button3">Les fournisseurs inactifs</a></p>
+
+    <?php if ($niveau == 1): ?>
+      <p><a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></p>
+      <p><a href="/images" class="button button3">Gérer les logos</a></p>
+    <?php endif; ?>
+
+    <?php if ($niveau == 1 | $niveau == 2): ?>
+      <p><a href="/fournisseurs-actif" class="button button3">Les fournisseurs actifs</a>
+      <a href="/fournisseurs-inactif" class="button button3">Les fournisseurs inactifs</a></p>
+    <?php endif; ?>
+
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br>

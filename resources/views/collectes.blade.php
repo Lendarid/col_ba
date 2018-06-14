@@ -10,6 +10,11 @@
           <?php return redirect(''); ?>
         <?php endif; ?>
         <!-- Fin de test de l'activité du compte de l'utilisateur -->
+
+        <?php $user = Auth::user();?>
+        <?php $niveau = "$user->niveau";?>
+        <!-- Fin de test du niveau du compte de l'utilisateur -->
+
 @extends('layouts.scripts')
 @extends('layouts.style')
 @extends('layouts.navbar')
@@ -54,9 +59,10 @@
     </td>
     </tr>
     <?php endforeach; ?>
-
 </table>
-    <p><a href="/ajoutcollecte" class="button button3">Ajouter une collecte</a></p>
+    <?php if ($niveau == 1): ?>
+        <p><a href="/ajoutcollecte" class="button button3">Ajouter une collecte</a></p>
+    <?php endif; ?>
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br>

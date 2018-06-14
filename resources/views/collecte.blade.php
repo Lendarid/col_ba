@@ -11,10 +11,13 @@
         <?php endif; ?>
         <!-- Fin de test de l'activité du compte de l'utilisateur -->
 
+        <?php $user = Auth::user();?>
+        <?php $niveau = "$user->niveau";?>
+        <!-- Fin de test du niveau du compte de l'utilisateur -->
+
 @extends('layouts.scripts')
 @extends('layouts.style')
 @extends('layouts.navbar')
-
 
 <!DOCTYPE html>
 <html>
@@ -64,7 +67,10 @@
 </div>
 
 <center><a href="/collectes" class="button button3">Retour</a>
-<a href="/collectes/delete/{{$collecte->Nom}}" class="button button3">Supprimer</a></center>
+<?php if ($niveau == 1): ?>
+    <a href="/collectes/delete/{{$collecte->Nom}}" class="button button3">Supprimer</a></center>
+<?php endif; ?>
+
 
 
 <!--

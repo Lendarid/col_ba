@@ -11,6 +11,17 @@
         <?php endif; ?>
         <!-- Fin de test de l'activité du compte de l'utilisateur -->
 
+        <?php $user = Auth::user();?>
+        <?php $niveau = "$user->niveau";?>
+        <?php if ($niveau == 3): ?>
+          <center><img src="https://www.banquealimentaire.org/sites/all/themes/custom/ffba/images/ffba_logo.png" alt="Avatar" class="img">
+          <br><br><br><br><p> Votre compte ne possède pas les droits de visionner cette page, veuillez contacter l'administrateur du site ! </p>
+          <p><a href="/connect" class="button buttonnovalidate">Accueil</a></p>
+          <p><a href="/deconnexion" class="button buttonnovalidate">Se déconnecter</a></p></center>
+          <?php return redirect(''); ?>
+        <?php endif; ?>
+        <!-- Fin de test du niveau du compte de l'utilisateur -->
+
 @extends('layouts.scripts')
 @extends('layouts.style')
 @extends('layouts.navbar')
@@ -69,6 +80,8 @@
 
 <center><a href="/fournisseurs" class="button button3">Retour</a>
 
+<?php if ($niveau == 1): ?>
+
   <?php $actif = "$fournisseur->Actif"; ?>
   <?php if ($actif == 0): ?>
     <a href="/fournisseurs/activer/{{$fournisseur->VIF}}" class="button button3">Activer</a>
@@ -76,7 +89,8 @@
   <?php if ($actif == 1): ?>
     <a href="/fournisseurs/desactiver/{{$fournisseur->VIF}}" class="button button3">Désactiver</a>
   <?php endif; ?>
-<a href="/fournisseurs/delete/{{$fournisseur->VIF}}" class="button button3">Supprimer</a></center>
+  <a href="/fournisseurs/delete/{{$fournisseur->VIF}}" class="button button3">Supprimer</a></center>
+<?php endif; ?>
 
 <!-- Add Google Maps -->
 

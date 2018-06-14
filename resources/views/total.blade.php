@@ -11,6 +11,10 @@
         <?php endif; ?>
         <!-- Fin de test de l'activité du compte de l'utilisateur -->
 
+        <?php $user = Auth::user();?>
+        <?php $niveau = "$user->niveau";?>
+        <!-- Fin de test du niveau du compte de l'utilisateur -->
+
 @extends('layouts.scripts')
 @extends('layouts.style')
 @extends('layouts.navbar')
@@ -50,9 +54,11 @@
     <td>
         {{ $produit->Poids }}
     </td>
-    <td>
-      <p><a href="/produits/{{$produit->id}}" class="button button3">En savoir plus</a></p>
-    </td>
+    <?php if ($niveau == 2 | $niveau == 1): ?>
+      <td>
+          <p><a href="/produits/{{$produit->id}}" class="button button3">En savoir plus</a></p>
+        </td>
+    <?php endif; ?>
     </tr>
     <?php endif; ?>
     <?php endforeach; ?>
@@ -116,8 +122,10 @@ $TotalGrille = $Grille * $PoidsGrille;?>
     </td>
     </tr>
 </table>
-
+<?php if ($niveau == 1): ?>
     <p><a href="/ajoutproduit" class="button button3">Ajouter un produit</a></p>
+<?php endif; ?>
+
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br>
