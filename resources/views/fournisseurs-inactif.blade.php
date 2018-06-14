@@ -33,7 +33,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
 
-
+ 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="collecte">
   <h3 class="w3-center">
@@ -89,7 +89,10 @@
 
 </table>
     <p><center><a href="/fournisseurs" class="button button3">Retour</a>
-    <a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></center></p>
+    <?php if ($niveau == 1): ?>
+          <a href="/ajoutfournisseur" class="button button3">Ajouter un fournisseur</a></center></p>
+    <?php endif; ?>
+
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br>
