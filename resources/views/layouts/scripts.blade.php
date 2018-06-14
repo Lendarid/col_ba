@@ -1,21 +1,5 @@
 <script>
 
-function myMap()
-{
-  myCenter=new google.maps.LatLng(48.657087, 6.190892);
-  var mapOptions= {
-    center:myCenter,
-    zoom:15.6, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
-
 // Modal Image Gallery
 function onClick(element) {
   document.getElementById("img01").src = element.src;
@@ -45,5 +29,3 @@ function toggleFunction() {
     }
 }
 </script>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6qTIqgolGQzFis7K-6TSIC0TqItUMIok&callback=myMap"></script>

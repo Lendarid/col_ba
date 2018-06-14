@@ -67,7 +67,7 @@
         <br>
         Nombre de palette(s) :
         &emsp;&emsp;&emsp;
-        Nombre de grille(<s></s>) : 
+        Nombre de grille(<s></s>) :
         <br>
         Poids total :
         &emsp;&emsp;&emsp;&emsp;
@@ -103,7 +103,8 @@
   <div class="w3-row w3-padding-32 w3-section">
     <div class="w3-col m4 w3-container">
       <!-- Add Google Maps -->
-      <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
+      <iframe id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"src="https://www.google.com/maps/d/embed?mid=1J9RA9XD0hXvwIwTup6Ek5qalaFxJQIEH" width="800" height="600"></iframe>
+
     </div>
     <div class="w3-col m8 w3-panel">
       <div class="w3-large w3-margin-bottom">
