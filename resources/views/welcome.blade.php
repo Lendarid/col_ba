@@ -67,7 +67,7 @@
         <br>
         Nombre de palette(s) :
         &emsp;&emsp;&emsp;
-        Nombre de grille(<s></s>) :
+        Nombre de grille(s) :
         <br>
         Poids total :
         &emsp;&emsp;&emsp;&emsp;
@@ -122,10 +122,6 @@
   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Haut de page</a>
   </footer>
 
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
 
 </body>
 </html>
