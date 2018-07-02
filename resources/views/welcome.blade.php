@@ -56,29 +56,70 @@
   <div class="w3-row">
       <h1 class="w3-center">Notre Dernière Collecte</h1>
       <br>
-    <?php foreach ($collectes as $collecte): ?>
-      <h3 class="w3-center"><span style="text-decoration: underline;"><em>{{ $collecte->Nom }}</em><span></h3>
-      <div class="w3-row">
-      <h4>
+
+
+        <?php
+        // RECUPERATION DU POIDS D'UNE PALETTE ET GRILLE DANS LA COLLECTE
+        $COLLECTE = DB::table('Collectes')->orderBy('DateDebut', 'desc')->pluck('ID')->first(); //Récupère l'ID de la collecte avec la date la plus lointaine
+				$col = DB::table('Collectes')->orderBy('DateDebut', 'desc')->first();
+        ?>
+
+           <?php  $PoidsPalette = $col->PoidsPal;
+                  $PoidsGrille = $col->PoidsGrille;
+                  $NomCollecte = $col->Nom; ?>
+
+        <?php
+        // RECUPERATION DES PRODUITS
+        $PRO = DB::table('Produits')->where('ID_Collecte','=',$NomCollecte)->get();
+        $arrPRO = $PRO->toArray();
+        ?>
+
+        <?php
+        $Palette = 0;
+        $Grille = 0;
+        $Somme = 0;
+        ?>
+        @foreach($arrPRO as $pro)
+          <?php $actif = "$pro->Valider";
+          if ($actif == 1):
+            $Palette += $pro->NbPal;
+          endif; ?>
+
+          <?php if ($actif == 1):
+            $Grille += $pro->NbGrille;
+          endif; ?>
+
+          <?php if ($actif == 1):
+            $Somme += $pro->Poids;
+          endif; ?>
+        @endforeach
+
+        <?php
+        $TotalAutres = 0;
+        $Total = 0;
+        $TotalAutres = ($PoidsPalette * $Palette) + ($PoidsGrille * $Grille);
+
+        $Total = $Somme - $TotalAutres;
+        ?>
+        <h3 class="w3-center"><span style="text-decoration: underline;"><em><?php echo $col->Nom; ?></em><span></h3>
+        <div class="w3-row">
+        <h4>
         <center>
-        Début de la collecte : {{ $collecte->DateDebut }}
+        Début de la collecte : <?php echo $col->DateDebut; ?>
         &emsp;&emsp;&emsp;
-        Fin de la collecte : {{ $collecte->DateFin }}
-        <br>
-        Nombre de palette(s) :
+        Fin de la collecte : <?php echo $col->DateFin; ?>
         &emsp;&emsp;&emsp;
-        Nombre de grille(s) :
         <br>
-        Poids total :
-        &emsp;&emsp;&emsp;&emsp;
-        Prix estimé :
 
-
+        Nombre de palette(s) : <?php echo $Palette; ?>
+        &emsp;&emsp;&emsp;
+        Nombre de grille(s) : <?php echo $Grille; ?>
+        <br>
+        <b><center> Poids des denrées : <?php echo $Total; ?> Kg </center></b>
        </center>
      </h4>
 
       </div> </div>
-    <?php endforeach; ?>
 
 <!-- Modal for full size images on click-->
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
